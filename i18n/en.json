@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Home",
+    "themes": "Themes",
+    "pricing": "Pricing",
+    "about": "About"
+  },
+  "hero": {
+    "title": "E-commerce Theme Marketplace",
+    "subtitle": "Discover and install beautiful themes for your online store",
+    "cta": "Browse Themes"
+  },
+  "features": {
+    "title": "Why choose ecommua?",
+    "item1": { "title": "Easy Install", "desc": "One-click theme deployment to your store" },
+    "item2": { "title": "Professional Design", "desc": "Dozens of beautiful, UX-optimized templates" },
+    "item3": { "title": "Multi-industry", "desc": "Fashion, electronics, F&B and much more" }
+  },
+  "themes": {
+    "title": "Theme Catalog",
+    "empty": "No themes available yet",
+    "preview": "Preview",
+    "price_free": "Free"
+  },
+  "footer": {
+    "rights": "© 2025 ecommua. All rights reserved."
+  }
+}

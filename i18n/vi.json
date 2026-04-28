@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "themes": "Chủ đề",
+    "pricing": "Bảng giá",
+    "about": "Giới thiệu"
+  },
+  "hero": {
+    "title": "Marketplace chủ đề thương mại điện tử",
+    "subtitle": "Khám phá và cài đặt chủ đề đẹp cho cửa hàng của bạn",
+    "cta": "Khám phá chủ đề"
+  },
+  "features": {
+    "title": "Tại sao chọn ecommua?",
+    "item1": { "title": "Dễ cài đặt", "desc": "Một click để áp dụng chủ đề vào cửa hàng" },
+    "item2": { "title": "Thiết kế chuyên nghiệp", "desc": "Hàng chục mẫu thiết kế đẹp, chuẩn UX" },
+    "item3": { "title": "Hỗ trợ đa ngành", "desc": "Thời trang, điện tử, F&B và nhiều hơn nữa" }
+  },
+  "themes": {
+    "title": "Danh sách chủ đề",
+    "empty": "Chưa có chủ đề nào",
+    "preview": "Xem trước",
+    "price_free": "Miễn phí"
+  },
+  "footer": {
+    "rights": "© 2025 ecommua. All rights reserved."
+  }
+}
