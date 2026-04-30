@@ -8,6 +8,9 @@ import { fileURLToPath } from 'url'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Themes } from './collections/Themes'
+import { Posts } from './collections/Posts'
+import { Categories } from './collections/Categories'
+import { Authors } from './collections/Authors'
 import { SiteSettings } from './globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
@@ -21,7 +24,7 @@ export default buildConfig({
     },
   },
 
-  collections: [Users, Media, Themes],
+  collections: [Users, Media, Themes, Categories, Authors, Posts],
 
   globals: [SiteSettings],
 
