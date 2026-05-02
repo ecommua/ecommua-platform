@@ -313,7 +313,7 @@ export function MarketingDockNav({ locale }: { locale: string }) {
   };
   const lastItemId = items[items.length - 1]?.id;
 
-  const dockBgClass = 'bg-[rgb(2_48_71_/_0.18)] dark:bg-white/15 backdrop-blur-2xl shadow-2xl shadow-[rgb(2_48_71_/_0.25)] dark:shadow-white/5 ring-1 ring-[rgb(2_48_71_/_0.18)] dark:ring-white/10';
+  const dockBgClass = 'bg-[#219EBC] dark:bg-white/15 backdrop-blur-2xl shadow-2xl shadow-[#023047]/30 dark:shadow-white/5 ring-1 ring-[#023047]/20 dark:ring-white/10';
 
   return (
     <nav
