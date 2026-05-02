@@ -36,13 +36,13 @@ const ROWS = [
 
 export function HomeFeatureGroupBSection() {
   return (
-    <section className="bg-deep-space-blue py-24 sm:py-28 text-white">
+    <section className="bg-bg py-24 sm:py-28 text-fg">
       <Container size="xl">
         <div className="space-y-6">
           {ROWS.map((r, i) => (
             <div
               key={i}
-              className="rounded-[32px] bg-[#0a3d57] ring-1 ring-white/10 overflow-hidden shadow-soft"
+              className="rounded-[32px] bg-bg-elevated ring-1 ring-border overflow-hidden shadow-soft"
             >
               <div
                 className={`grid grid-cols-1 lg:grid-cols-2 items-center ${
@@ -51,18 +51,21 @@ export function HomeFeatureGroupBSection() {
               >
                 {/* copy */}
                 <div className="p-8 sm:p-12 lg:p-14">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] ring-1 ring-white/15 px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-brand-300">
+                  <div
+                    className="inline-flex items-center gap-2 rounded-full bg-bg-muted ring-1 ring-border px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider"
+                    style={{ color: "var(--color-accent-600)" }}
+                  >
                     {r.eyebrow}
                   </div>
-                  <h3 className="mt-5 font-display text-[28px] sm:text-3xl lg:text-[32px] font-bold tracking-[-0.025em] leading-[1.06] text-white max-w-[360px]">
+                  <h3 className="mt-5 font-display text-[28px] sm:text-3xl lg:text-[32px] font-bold tracking-[-0.025em] leading-[1.06] text-fg max-w-[360px]">
                     {r.title}
                   </h3>
-                  <p className="mt-5 text-[16px] leading-relaxed text-white/70 max-w-[360px]">
+                  <p className="mt-5 text-[16px] leading-relaxed text-fg-muted max-w-[360px]">
                     {r.body}
                   </p>
                 </div>
                 {/* image */}
-                <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[420px] bg-white/5 overflow-hidden">
+                <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[420px] bg-bg-muted overflow-hidden">
                   <Image
                     src={r.image}
                     alt=""

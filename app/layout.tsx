@@ -55,26 +55,24 @@ const orgJsonLd = {
   sameAs: [] as string[], // populate with social URLs when available
 }
 
-// Root layout — minimal, no font overhead, children handle locale-specific layout
+// Root layout — minimal, no font overhead, children handle locale-specific layout.
+// NOTE: React 19 dev warning "Encountered a script tag while rendering React component"
+// is a KNOWN false positive for <script> in <head> — the script DOES execute server-side
+// on initial load. See https://github.com/facebook/react/issues/30493
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi" className={`h-full antialiased ${inter.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
-        {/* FOUC-safe theme bootstrap — sets .dark before paint based on
-            localStorage("ecommua-theme") | prefers-color-scheme. Must run sync. */}
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: theme bootstrap must be inline + sync
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem('ecommua-theme');var m=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(m==='dark')document.documentElement.classList.add('dark');document.documentElement.style.colorScheme=m;}catch(e){}})();`,
-          }}
-        />
-      </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+        {/* FOUC-safe theme bootstrap — runs sync before paint */}
+        <script src="/marketing-theme-bootstrap-fouc-safe.js" />
+        {/* JSON-LD Organization — Google rich results */}
         <script
           type="application/ld+json"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD requires raw script content
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD requires raw script body
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans" suppressHydrationWarning>
         {children}
       </body>
     </html>

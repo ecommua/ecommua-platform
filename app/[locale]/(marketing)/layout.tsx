@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
-import { MarketingNavBar } from '@/app/_components/marketing/marketing-nav-bar'
+import { MarketingDockNav } from '@/app/_components/marketing/marketing-dock-nav'
 import { MarketingSiteFooter } from '@/app/_components/marketing/marketing-site-footer'
 
 type Props = {
@@ -23,9 +23,9 @@ export default async function MarketingLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <div lang={locale} className="flex flex-col min-h-screen bg-background text-foreground">
-        <MarketingNavBar locale={locale} />
         <main className="flex-1">{children}</main>
         <MarketingSiteFooter locale={locale} />
+        <MarketingDockNav locale={locale} />
       </div>
     </NextIntlClientProvider>
   )

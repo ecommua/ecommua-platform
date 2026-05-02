@@ -1,29 +1,21 @@
 import { HomeHeroSection } from "@/app/_components/marketing/home/home-hero-mockup-grid-section";
-import { HomeTrustStripSection } from "@/app/_components/marketing/home/home-trust-partners-strip-section";
 import { HomeFeatureGroupASection } from "@/app/_components/marketing/home/home-comprehensive-features-three-up-section";
-import { HomeIntegrationsGridSection } from "@/app/_components/marketing/home/home-integrations-platform-grid-section";
 import { HomeFeatureGroupBSection } from "@/app/_components/marketing/home/home-alternating-feature-rows-section";
-import { HomeStatQuoteBandSection } from "@/app/_components/marketing/home/home-big-stat-customer-quote-band-section";
 import { HomeFinalCtaSection } from "@/app/_components/marketing/home/home-final-cta-radial-glow-section";
-import { HomeGiantWordmarkBandSection } from "@/app/_components/marketing/home/home-giant-wordmark-band-section";
 
 interface Props {
   params: Promise<{ locale: string }>;
 }
 
-// Homepage — pixel-match Comoret ref. Sections in order per redesign-brief-pixel-perfect.md.
+// Homepage — Coronet-inspired flow: hero → bento features → alternating rows → final CTA.
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   return (
     <>
       <HomeHeroSection locale={locale} />
-      <HomeTrustStripSection />
       <HomeFeatureGroupASection locale={locale} />
-      <HomeIntegrationsGridSection />
       <HomeFeatureGroupBSection />
-      <HomeStatQuoteBandSection />
       <HomeFinalCtaSection locale={locale} />
-      <HomeGiantWordmarkBandSection />
     </>
   );
 }

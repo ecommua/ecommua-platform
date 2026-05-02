@@ -1,122 +1,139 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/app/_components/ui/container-wrapper";
 
 /**
- * "Comprehensive Features" 3-up — bento style mimicking Comoret slice 05:
- *   eyebrow + heading + sub
- *   3 cards: [30+ Section · grid of theme thumbs] [Style Guide · stacked color cards] [25+ Trang · single tall preview]
- *   bottom: full-width CTA card "Còn nhiều theme đẹp khác → Xem theme"
+ * Bento — Coronet-inspired 5-card grid.
+ * Layout (desktop):
+ *   2 stacked left  ·  1 tall center (phone-mockup style)  ·  2 stacked right
+ * Layout (mobile): single column.
+ *
+ * Cards: rounded-3xl, light bg in light mode, prussian-blue/elevated bg in dark.
+ * Each card has small image preview + bold short title + 1-line caption.
  */
 
-export function HomeFeatureGroupASection({ locale }: { locale: string }) {
+type Card = {
+  title: string;
+  caption: string;
+  image: string;
+};
+
+const LEFT_TOP: Card = {
+  title: "Block ghép như Lego",
+  caption: "Kéo thả block, đổi thứ tự, layout không vỡ.",
+  image: "/hero-tiles/localhost-3002-vi-themes-luxury.png",
+};
+const LEFT_BOTTOM: Card = {
+  title: "25+ trang sẵn sàng",
+  caption: "Home, PDP, cart, checkout, blog — đầy đủ.",
+  image: "/hero-tiles/localhost-3002-vi-pricing.png",
+};
+const CENTER: Card = {
+  title: "Demo store thật",
+  caption: "Cài là chạy, không cần sửa code.",
+  image: "/hero-tiles/default-demo-localhost-3000-vi.png",
+};
+const RIGHT_TOP: Card = {
+  title: "Design token tách lớp",
+  caption: "Đổi màu brand một dòng, cả site đồng bộ.",
+  image: "/hero-tiles/localhost-3002-vi-themes-trendy.png",
+};
+const RIGHT_BOTTOM: Card = {
+  title: "Multi-store thật",
+  caption: "Mỗi brand domain riêng, kho riêng — chung 1 dashboard.",
+  image: "/hero-tiles/watch-shop-demo-localhost-3000-vi.png",
+};
+
+function SmallCard({ card }: { card: Card }) {
   return (
-    <section className="bg-deep-space-blue py-24 sm:py-28 text-white">
+    <div className="group rounded-3xl bg-bg-elevated ring-1 ring-border p-5 sm:p-6 flex flex-col gap-4 shadow-soft">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-bg-muted ring-1 ring-border">
+        <Image
+          src={card.image}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 360px"
+          className="object-cover object-top"
+        />
+      </div>
+      <div>
+        <h3 className="font-display text-[20px] sm:text-[22px] font-bold tracking-tight text-fg leading-tight">
+          {card.title}
+        </h3>
+        <p className="mt-1.5 text-[13.5px] leading-snug text-fg-muted">
+          {card.caption}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function CenterCard({ card }: { card: Card }) {
+  return (
+    <div className="rounded-3xl bg-bg-elevated ring-1 ring-border p-6 sm:p-8 flex flex-col gap-6 shadow-card h-full justify-center">
+      {/* Phone-mockup: plain styled div as phone frame, screenshot inside */}
+      <div className="relative mx-auto aspect-[9/19.5] w-[200px] sm:w-[220px] rounded-[44px] bg-black p-[6px] ring-1 ring-white/10 shadow-2xl">
+        <div className="relative h-full w-full rounded-[38px] overflow-hidden bg-bg">
+          <Image
+            src={card.image}
+            alt=""
+            fill
+            sizes="220px"
+            className="object-cover object-top"
+          />
+        </div>
+        {/* dynamic island */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 h-5 w-16 rounded-full bg-black" />
+      </div>
+      <div className="text-center">
+        <h3 className="font-display text-2xl font-bold tracking-tight text-fg leading-tight">
+          {card.title}
+        </h3>
+        <p className="mt-2 text-sm leading-snug text-fg-muted max-w-[260px] mx-auto">
+          {card.caption}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function HomeFeatureGroupASection({ locale: _locale }: { locale: string }) {
+  return (
+    <section className="bg-bg py-24 sm:py-28">
       <Container size="xl">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] ring-1 ring-white/15 px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-brand">
+          <div className="inline-flex items-center gap-2 rounded-full bg-bg-muted ring-1 ring-border px-3.5 py-1.5 text-[11px] font-mono font-semibold uppercase tracking-wider text-fg-muted">
             Tính năng
           </div>
-          <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
+          <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.03em] leading-[1.04] text-fg">
             Đủ thứ cần để
             <br />
-            <span className="text-accent">vận hành nghiêm túc.</span>
+            <span style={{ color: "var(--color-accent-600)" }}>
+              vận hành nghiêm túc.
+            </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-white/70">
-            Module tách bạch, chỉnh được tới từng block. Đã chạy production thật, không phải demo cuối tuần.
+          <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-fg-muted">
+            Module tách bạch, chỉnh được tới từng block.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {/* 30+ Section — grid of theme thumbnails */}
-          <div className="rounded-3xl bg-[#0a3d57] ring-1 ring-white/8 shadow-soft p-7">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-white">Block ghép như Lego</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/70">
-              Kéo thả block, đổi thứ tự, đổi theme — layout không vỡ. Y chang môi trường dev và prod.
-            </p>
-            <div className="mt-6 grid grid-cols-2 gap-2.5">
-              {[
-                "/hero-tiles/localhost-3002-vi-themes-luxury.png",
-                "/hero-tiles/localhost-3002-vi-themes-trendy.png",
-                "/hero-tiles/localhost-3002-vi-themes-casual.png",
-                "/hero-tiles/fashion-demo-localhost-3000-vi.png",
-              ].map((src) => (
-                <div
-                  key={src}
-                  className="aspect-[4/3] rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative"
-                >
-                  <Image src={src} alt="" fill sizes="180px" className="object-cover object-top" />
-                </div>
-              ))}
-            </div>
+        {/* Bento grid: 1 col mobile, 3 cols desktop with center spanning 2 rows */}
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5 lg:auto-rows-fr">
+          {/* Left column */}
+          <div className="flex flex-col gap-5">
+            <SmallCard card={LEFT_TOP} />
+            <SmallCard card={LEFT_BOTTOM} />
           </div>
 
-          {/* Style Guide — token swatches + component preview */}
-          <div className="rounded-3xl bg-[#0a3d57] ring-1 ring-white/8 shadow-soft p-7 flex flex-col">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-white">Design token tách lớp</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/70">
-              Đổi màu brand một dòng, cả site đồng bộ. Không cần search-replace 200 file CSS.
-            </p>
-            <div className="mt-6 aspect-[4/3] rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
-              <Image
-                src="/hero-tiles/localhost-3002-vi-themes-luxury.png"
-                alt=""
-                fill
-                sizes="380px"
-                className="object-cover object-top"
-              />
-            </div>
-            <div className="mt-3 flex items-center gap-1.5">
-              {[
-                "var(--color-deep-space-blue)",
-                "var(--color-blue-green)",
-                "var(--color-sky-blue-light)",
-                "var(--color-amber-flame)",
-                "var(--color-princeton-orange)",
-              ].map((c, i) => (
-                <span
-                  key={i}
-                  className="h-6 flex-1 rounded-md ring-1 ring-border"
-                  style={{ backgroundColor: c }}
-                />
-              ))}
-            </div>
+          {/* Center tall */}
+          <div className="lg:row-span-1">
+            <CenterCard card={CENTER} />
           </div>
 
-          {/* 25+ Trang — tall single preview */}
-          <div className="rounded-3xl bg-[#0a3d57] ring-1 ring-white/8 shadow-soft p-7">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-white">25+ trang sẵn sàng</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/70">
-              Home, PDP, cart, checkout, blog, search — đầy đủ. SEO chuẩn từ đầu, không cần cài plugin.
-            </p>
-            <div className="mt-6 aspect-[4/3] rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
-              <Image
-                src="/hero-tiles/localhost-3002-vi-pricing.png"
-                alt=""
-                fill
-                sizes="380px"
-                className="object-cover object-top"
-              />
-            </div>
+          {/* Right column */}
+          <div className="flex flex-col gap-5">
+            <SmallCard card={RIGHT_TOP} />
+            <SmallCard card={RIGHT_BOTTOM} />
           </div>
-        </div>
-
-        {/* Bottom CTA card */}
-        <div className="mt-5 rounded-3xl bg-white/[0.06] ring-1 ring-white/15 p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-          <div>
-            <h3 className="font-display text-2xl font-bold tracking-tight text-white">
-              Còn nhiều theme đẹp khác.
-            </h3>
-            <p className="mt-1 text-sm text-white/70">
-              Mỗi theme dựng sẵn full flow mua hàng. Cài là chạy, không cần đụng code.
-            </p>
-          </div>
-          <Link
-            href={`/${locale}/themes`}
-            className="self-start sm:self-auto inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-fg"
-          >
-            Xem theme
-          </Link>
         </div>
       </Container>
     </section>

@@ -1,47 +1,71 @@
 @import "tailwindcss";
 
-/* Ecommua design tokens — "Onyx & Ember" palette.
-   #0B0F1A onyx (deepest, dark bg) · #F7F5F0 bone (light cream)
-   #3B5BDB cobalt (saturated brand) · #E8743B ember (warm accent)
-   #5B6478 slate (muted) */
+/* ════════════════════════════════════════════════════════════════════════
+   Ecommua design tokens — "Slate + Cyan" palette (Stripe/Linear-grade).
+   Neutral slate surfaces + cyan accent for CTAs and focus.
+   Token NAMES preserved for backward-compat; only values changed.
+
+   PER-TOKEN ROLE TABLE (used by all components)
+   ─────────────────────────────────────────────────────────────────────
+   Token              Role                              Light   / Dark
+   ─────────────────────────────────────────────────────────────────────
+   --bg               Page background                   #FFFFFF / #020617
+   --bg-elevated      Card surface, dock glass          #F8FAFC / #0F172A
+   --bg-muted         Subtle bg, badge bg               #F1F5F9 / #1E293B
+   --fg               Primary text, headings            #0F172A / #F8FAFC
+   --fg-muted         Secondary text                    #64748B / #94A3B8
+   --border           Card border, divider              #E2E8F0 / #1E293B
+   --brand            Brand-strong text/icon            #0F172A / #06B6D4
+   --brand-strong     Brand hover state                 #020617 / #22D3EE
+   --brand-fg         Text on brand bg                  #FFFFFF / #020617
+   --accent           CTA, highlight, accent text       #0891B2 / #06B6D4
+   --accent-strong    CTA hover                         #0E7490 / #22D3EE
+   --accent-fg        Text on cyan CTA                  #FFFFFF / #020617
+   --ring             Focus ring                        #06B6D4 / #67E8F9
+   ════════════════════════════════════════════════════════════════════════ */
 
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-geist), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* — Brand ramp built from #3B5BDB cobalt anchor (600) — */
-  --color-brand-50:  #eef1fc;
-  --color-brand-100: #dde3f9;
-  --color-brand-200: #b8c4f2;
-  --color-brand-300: #8a9deb;
-  --color-brand-400: #6378e3;
-  --color-brand-500: #4d63de;
-  --color-brand-600: #3b5bdb;
-  --color-brand-700: #2f49b5;
-  --color-brand-800: #243a8f;
-  --color-brand-900: #1a2a66;
-  --color-brand-950: #0f1a3d;
+  /* — Brand ramp: slate scale anchored on slate-900 #0F172A — */
+  --color-brand-50:  #F8FAFC;
+  --color-brand-100: #F1F5F9;
+  --color-brand-200: #E2E8F0;
+  --color-brand-300: #CBD5E1;
+  --color-brand-400: #94A3B8;
+  --color-brand-500: #64748B;
+  --color-brand-600: #475569;
+  --color-brand-700: #334155;
+  --color-brand-800: #1E293B;
+  --color-brand-900: #0F172A;
+  --color-brand-950: #020617;
 
-  /* — Accent ramp built from #E8743B ember anchor (600) — */
-  --color-accent-50:  #fdf2eb;
-  --color-accent-100: #fbe1d1;
-  --color-accent-200: #f6c19e;
-  --color-accent-300: #f1a071;
-  --color-accent-400: #ec8753;
-  --color-accent-500: #e87d45;
-  --color-accent-600: #e8743b;
-  --color-accent-700: #c45c28;
-  --color-accent-800: #94431a;
-  --color-accent-900: #5f2b0e;
-  --color-accent-950: #361706;
+  /* — Accent ramp: cyan scale anchored on cyan-600 #0891B2 — */
+  --color-accent-50:  #ECFEFF;
+  --color-accent-100: #CFFAFE;
+  --color-accent-200: #A5F3FC;
+  --color-accent-300: #67E8F9;
+  --color-accent-400: #22D3EE;
+  --color-accent-500: #06B6D4;
+  --color-accent-600: #0891B2;
+  --color-accent-700: #0E7490;
+  --color-accent-800: #155E75;
+  --color-accent-900: #164E63;
+  --color-accent-950: #083344;
 
-  /* — Raw palette literals (legacy aliases — same names, new values) — */
-  --color-sky-blue-light:   #8a9deb;
-  --color-blue-green:       #3b5bdb;
-  --color-deep-space-blue:  #0b0f1a;
-  --color-amber-flame:      #f1a071;
-  --color-princeton-orange: #e8743b;
+  /* — Legacy literal aliases (names kept, values point to new palette) — */
+  --color-sky-blue-light:   #A5F3FC; /* was lime-tint, now cyan-200 */
+  --color-blue-green:       #0891B2; /* now cyan-600 */
+  --color-deep-space-blue:  #020617; /* now slate-950 */
+  --color-amber-flame:      #22D3EE; /* now cyan-400 */
+  --color-princeton-orange: #06B6D4; /* now cyan-500 */
+
+  /* Direct semantic literal aliases */
+  --color-prussian-blue: #020617;
+  --color-marigold:      #06B6D4;
+  --color-alabaster:     #F8FAFC;
 
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -49,27 +73,27 @@
   --radius-2xl: 20px;
   --radius-3xl: 28px;
 
-  --shadow-soft: 0 1px 2px rgb(11 15 26 / 0.05), 0 1px 3px rgb(11 15 26 / 0.07);
-  --shadow-card: 0 1px 2px rgb(11 15 26 / 0.05), 0 4px 16px -4px rgb(11 15 26 / 0.10);
-  --shadow-lift: 0 4px 8px -2px rgb(11 15 26 / 0.08), 0 16px 32px -8px rgb(11 15 26 / 0.14);
-  --shadow-glow: 0 0 0 1px rgb(59 91 219 / 0.14), 0 8px 28px -8px rgb(59 91 219 / 0.35);
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.05), 0 1px 3px rgb(0 0 0 / 0.07);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.05), 0 4px 16px -4px rgb(0 0 0 / 0.10);
+  --shadow-lift: 0 4px 8px -2px rgb(0 0 0 / 0.08), 0 16px 32px -8px rgb(0 0 0 / 0.14);
+  --shadow-glow: 0 0 0 1px rgb(6 182 212 / 0.18), 0 8px 28px -8px rgb(6 182 212 / 0.35);
 }
 
-/* ── Light (default) — bone background, onyx foreground ───────────── */
+/* ── Light (default) — white bg, slate-900 fg, cyan-600 accent ─────────── */
 :root {
-  --bg:             #ffffff;
-  --bg-elevated:    #f7f5f0;
-  --bg-muted:       #f0eee8;
-  --fg:             #0b0f1a;
-  --fg-muted:       #5b6478;
-  --border:         #e2dfd6;
-  --brand:          #3b5bdb;
-  --brand-strong:   #2f49b5;
-  --brand-fg:       #ffffff;
-  --accent:         #e8743b;
-  --accent-strong:  #c45c28;
-  --accent-fg:      #ffffff;
-  --ring:           #3b5bdb;
+  --bg:             #FFFFFF; /* page background */
+  --bg-elevated:    #F8FAFC; /* slate-50 — card surface, dock glass */
+  --bg-muted:       #F1F5F9; /* slate-100 — subtle bg, badge bg */
+  --fg:             #0F172A; /* slate-900 — primary text, headings */
+  --fg-muted:       #64748B; /* slate-500 — secondary text */
+  --border:         #E2E8F0; /* slate-200 — card border, divider */
+  --brand:          #0F172A; /* slate-900 — brand-strong on white */
+  --brand-strong:   #020617; /* slate-950 — brand hover */
+  --brand-fg:       #FFFFFF; /* text on brand bg */
+  --accent:         #0891B2; /* cyan-600 — CTA, accent text on white */
+  --accent-strong:  #0E7490; /* cyan-700 — CTA hover */
+  --accent-fg:      #FFFFFF; /* text on cyan CTA */
+  --ring:           #06B6D4; /* cyan-500 — focus ring */
 
   --accent-bg:    var(--bg-muted);
   --background:        var(--bg);
@@ -80,21 +104,21 @@
   --card-foreground:   var(--fg);
 }
 
-/* ── Dark — onyx background, bone foreground ──────────────────────── */
+/* ── Dark — slate-950 bg, slate-50 fg, cyan-500 accent ─────────────────── */
 .dark {
-  --bg:             #0b0f1a;
-  --bg-elevated:    #141a2b;
-  --bg-muted:       #1a2138;
-  --fg:             #f7f5f0;
-  --fg-muted:       #a4adc4;
-  --border:         #232b44;
-  --brand:          #8a9deb;
-  --brand-strong:   #6378e3;
-  --brand-fg:       #0b0f1a;
-  --accent:         #f1a071;
-  --accent-strong:  #e8743b;
-  --accent-fg:      #0b0f1a;
-  --ring:           #8a9deb;
+  --bg:             #020617; /* slate-950 — page background */
+  --bg-elevated:    #0F172A; /* slate-900 — card surface */
+  --bg-muted:       #1E293B; /* slate-800 — subtle bg */
+  --fg:             #F8FAFC; /* slate-50 — primary text */
+  --fg-muted:       #94A3B8; /* slate-400 — secondary text */
+  --border:         #1E293B; /* slate-800 — card border */
+  --brand:          #06B6D4; /* cyan-500 — brand pop on dark */
+  --brand-strong:   #22D3EE; /* cyan-400 — hover */
+  --brand-fg:       #020617; /* text on cyan brand */
+  --accent:         #06B6D4; /* cyan-500 — CTA */
+  --accent-strong:  #22D3EE; /* cyan-400 — CTA hover */
+  --accent-fg:      #020617; /* text on cyan CTA */
+  --ring:           #67E8F9; /* cyan-300 — focus ring */
 
   --accent-bg:    var(--bg-muted);
   --background:        var(--bg);
@@ -152,8 +176,8 @@ body {
 /* ── Backgrounds: grid + dots adapt to mode ─────────────────────── */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgb(15 23 42 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(15 23 42 / 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgb(15 23 42 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 .dark .bg-grid {
@@ -162,7 +186,7 @@ body {
     linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
 }
 .bg-dots {
-  background-image: radial-gradient(rgb(15 23 42 / 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgb(15 23 42 / 0.10) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 .dark .bg-dots {
@@ -196,14 +220,16 @@ body {
 .hero-stage:hover .hero-col { animation-play-state: paused; }
 
 ::selection {
-  background: var(--color-brand-200);
+  background: var(--color-accent-300);
   color: var(--color-brand-900);
 }
 .dark ::selection {
-  background: var(--color-brand-800);
-  color: var(--color-brand-50);
+  background: var(--color-accent-500);
+  color: #020617;
 }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* cache-bust 1777707111 */

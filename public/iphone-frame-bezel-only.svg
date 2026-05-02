@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  iPhone 16 Pro Max bezel-only frame.
+  Inner screen area is transparent (no fill) — designed to be overlaid on top
+  of a screenshot so the screenshot shows through the cutout.
+  Aspect: 320 x 658 (≈19.5:9 portrait), viewBox preserved for crisp scaling.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="658" viewBox="0 0 320 658" fill="none">
+  <!-- Outer titanium frame -->
+  <rect x="2" y="2" width="316" height="654" rx="56" ry="56"
+        fill="#1a1d1a" stroke="#2a2e2a" stroke-width="1.5"/>
+  <!-- Inner bezel (matte black ring around screen) -->
+  <rect x="8" y="8" width="304" height="642" rx="50" ry="50"
+        fill="#0a0a0a"/>
+  <!-- Screen cutout (transparent — punch through using even-odd via path) -->
+  <path d="M 0 0 H 320 V 658 H 0 Z
+           M 16 16 a 44 44 0 0 1 44 -44 H 260 a 44 44 0 0 1 44 44 V 642
+           a 44 44 0 0 1 -44 44 H 60 a 44 44 0 0 1 -44 -44 Z"
+        fill="#1a1d1a" fill-rule="evenodd" opacity="0"/>
+  <!-- Actually: easier — paint the bezel as a frame using mask -->
+  <defs>
+    <mask id="screen-cutout">
+      <rect width="320" height="658" fill="white"/>
+      <rect x="16" y="16" width="288" height="626" rx="44" ry="44" fill="black"/>
+    </mask>
+  </defs>
+  <!-- Re-paint full frame with cutout mask so inner is truly transparent -->
+  <g mask="url(#screen-cutout)">
+    <rect x="2" y="2" width="316" height="654" rx="56" ry="56"
+          fill="#1a1d1a" stroke="#3a3e3a" stroke-width="2"/>
+    <rect x="8" y="8" width="304" height="642" rx="50" ry="50"
+          fill="#0a0a0a"/>
+  </g>
+  <!-- Dynamic Island -->
+  <rect x="116" y="22" width="88" height="26" rx="13" ry="13" fill="#000000"/>
+  <!-- Camera dot inside island -->
+  <circle cx="190" cy="35" r="3.5" fill="#0c0e11"/>
+  <circle cx="190" cy="35" r="2" fill="#1a2230"/>
+  <!-- Side buttons (right): Power -->
+  <rect x="318" y="170" width="4" height="76" rx="1.5" fill="#2a2e2a"/>
+  <!-- Side buttons (left): Action button -->
+  <rect x="-2" y="120" width="4" height="32" rx="1.5" fill="#2a2e2a"/>
+  <!-- Volume up -->
+  <rect x="-2" y="180" width="4" height="50" rx="1.5" fill="#2a2e2a"/>
+  <!-- Volume down -->
+  <rect x="-2" y="244" width="4" height="50" rx="1.5" fill="#2a2e2a"/>
+  <!-- Outer thin highlight ring for depth -->
+  <rect x="2.5" y="2.5" width="315" height="653" rx="55.5" ry="55.5"
+        fill="none" stroke="#4a4e4a" stroke-width="0.5" opacity="0.6"/>
+</svg>

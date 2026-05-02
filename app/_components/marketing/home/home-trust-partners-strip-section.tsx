@@ -17,7 +17,7 @@ export function HomeTrustStripSection() {
     <section className="bg-bg py-10 sm:py-14 border-y border-border">
       <Container size="xl">
         <p className="text-center text-[11px] font-mono uppercase tracking-[0.22em] text-fg-muted/60">
-          Stack quen thuộc · Builder Việt đang chạy thật
+          Công nghệ chuẩn hóa · Lựa chọn hàng đầu của Builder Việt
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 sm:gap-x-14">
           {PARTNERS.map((p) => (
