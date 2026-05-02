@@ -1,6 +1,6 @@
 import { Container } from "@/app/_components/ui/container-wrapper";
 
-/** Big-stat / quote band — large stat number + customer quote. */
+/** Big-stat / customer quote band — large stat number left, customer quote card right. Static. */
 export function HomeStatQuoteBandSection() {
   return (
     <section className="bg-bg-elevated py-28 border-y border-border">
@@ -12,10 +12,10 @@ export function HomeStatQuoteBandSection() {
               98%
             </div>
             <p className="mt-4 font-display text-2xl sm:text-3xl font-bold tracking-tight text-fg max-w-md">
-              merchant ship store đầu tiên trong vòng 1 tuần.
+              merchant lên store đầu tiên trong vòng 1 tuần.
             </p>
             <p className="mt-3 text-[15px] text-fg-muted max-w-md">
-              Theme ship sẵn + bench CLI + multi-tenant baseline = không phải xây lại.
+              Theme đẹp ship sẵn, CLI gọn, multi-tenant từ ngày đầu. Không phải tự code lại từ con số 0.
             </p>
           </div>
 
@@ -25,8 +25,8 @@ export function HomeStatQuoteBandSection() {
               <path d="M9 7H4v6h3c0 2-1 4-3 4v2c4 0 6-3 6-7V7zm11 0h-5v6h3c0 2-1 4-3 4v2c4 0 6-3 6-7V7z" />
             </svg>
             <blockquote className="mt-5 font-display text-xl sm:text-2xl font-medium tracking-tight leading-snug text-fg">
-              &ldquo;Tụi mình chạy 4 store cùng lúc trên 1 vendor. Aimeos site tree
-              thật giúp content sale-Tết-2026 không lẫn lộn giữa các brand.&rdquo;
+              &ldquo;Bên mình chạy 4 brand cùng lúc trên cùng một tài khoản. Sale Tết 2026 mỗi
+              brand một content riêng, không phải sửa code, không phải deploy lại.&rdquo;
             </blockquote>
             <figcaption className="mt-6 flex items-center gap-3">
               <div className="h-10 w-10 rounded-full bg-brand/30" />

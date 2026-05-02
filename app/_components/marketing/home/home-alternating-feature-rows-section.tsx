@@ -1,29 +1,30 @@
 import { Container } from "@/app/_components/ui/container-wrapper";
 
 /**
- * Feature group B — alternating image+copy rows (3 features).
+ * Alternating feature rows — 3 deep-dive rows (image left/right alternating).
+ * Static, no motion.
  */
 
 const ROWS = [
   {
     eyebrow: "Multi-store",
-    title: "1 vendor, N cửa hàng",
+    title: "Một tài khoản, mở bao nhiêu store cũng được.",
     body:
-      "Aimeos site tree thật. Mỗi store có domain riêng, theme riêng, content riêng. Không phải simulate — kiến trúc multi-tenant từ ngày đầu.",
+      "Mỗi store domain riêng, theme riêng, kho riêng — vẫn dùng chung 1 dashboard. Aimeos site tree thật, không phải mock. Sale Tết của brand A không lẫn vào brand B.",
     align: "left" as const,
   },
   {
     eyebrow: "Self-host CLI",
-    title: "bench new-site, deploy, backup",
+    title: "Một lệnh terminal là xong cái store mới.",
     body:
-      "CLI bench-style mượn từ ERPNext. Chạy trên VPS của bạn. Không Vercel, không vendor lock-in. Source code đầy đủ ngay phút đầu.",
+      "bench new-site, bench deploy, bench backup. CLI mượn ý tưởng từ ERPNext — dev nào cũng đọc hiểu trong 5 phút. Chạy trên VPS của bạn, không Vercel, không hoá đơn cuối tháng giật mình.",
     align: "right" as const,
   },
   {
     eyebrow: "Component baseline",
-    title: "24 slot cốt lõi chia sẻ",
+    title: "Đổi theme không bao giờ vỡ checkout.",
     body:
-      "Mỗi theme tuân thủ 24 slot baseline: Header, PDP gallery, cart drawer, checkout. Đổi theme bất kỳ lúc nào — checkout không bao giờ vỡ.",
+      "24 slot lõi giữ nguyên ở mọi theme: header, PDP gallery, cart drawer, payment form. Bạn đổi giao diện cuối tuần, khách thanh toán xong vẫn thấy y chang.",
     align: "left" as const,
   },
 ];
@@ -44,7 +45,7 @@ export function HomeFeatureGroupBSection() {
                 <div className="inline-flex items-center gap-2 rounded-full bg-bg-muted ring-1 ring-border px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-brand">
                   {r.eyebrow}
                 </div>
-                <h3 className="mt-5 font-display text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-0.025em] leading-[1.08] text-fg">
+                <h3 className="mt-5 font-display text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-0.025em] leading-[1.06] text-fg">
                   {r.title}
                 </h3>
                 <p className="mt-5 text-[15px] leading-relaxed text-fg-muted max-w-md">

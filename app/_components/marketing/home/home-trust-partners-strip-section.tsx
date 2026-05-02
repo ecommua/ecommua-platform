@@ -5,9 +5,12 @@ const PARTNERS = ["Aimeos", "Payload CMS", "Next.js", "PostgreSQL", "Tailwind", 
 
 export function HomeTrustStripSection() {
   return (
-    <section className="bg-bg py-10 border-y border-border">
+    <section className="bg-bg py-12 border-y border-border">
       <Container size="xl">
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
+        <p className="text-center text-[12px] font-mono uppercase tracking-[0.2em] text-fg-muted/70">
+          Được build trên những công cụ bạn đã quen
+        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
           {PARTNERS.map((p) => (
             <span
               key={p}

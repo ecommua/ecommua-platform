@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Container } from "@/app/_components/ui/container-wrapper";
 
 /**
- * Final CTA — slice 16. Big rounded panel with radial glow at bottom-center,
- * giant headline, sub, dual CTA (View Demo white pill + Get started accent pill).
+ * Final CTA — slice 16. Big rounded panel, radial amber glow at bottom-center,
+ * giant headline, dual CTA pill (white "Xem demo" + accent "Bắt đầu").
  */
 
 export function HomeFinalCtaSection({ locale }: { locale: string }) {
@@ -23,13 +23,13 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
 
           <div className="relative text-center">
             <h2 className="mx-auto max-w-3xl font-display text-5xl sm:text-6xl lg:text-[80px] font-bold tracking-[-0.03em] leading-[1.02] text-fg">
-              Bắt đầu với
+              Đến lúc dựng store của bạn
               <br />
-              <span className="text-accent">Ecommua ngay!</span>
+              <span className="text-accent">trên Ecommua rồi đấy.</span>
             </h2>
             <p className="mx-auto mt-7 max-w-md text-[15px] leading-relaxed text-fg-muted">
-              Self-host SaaS commerce platform. Multi-store, multi-tenant, mã nguồn mở.
-              Trả 1 lần, dùng mãi mãi.
+              Tải về, deploy lên VPS, đập theme — cuối tuần này store đầu tiên đã sống.
+              Không phí ẩn, không vendor lock-in.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
@@ -42,7 +42,7 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
                 href={`/${locale}/pricing`}
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-fg shadow-lift"
               >
-                Bắt đầu
+                Bắt đầu ngay
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
