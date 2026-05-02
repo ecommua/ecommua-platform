@@ -1,5 +1,19 @@
 import type { Metadata } from 'next'
+import { Inter, Geist_Mono } from 'next/font/google'
 import './globals.css'
+
+// Inter — primary UI sans, full Vietnamese diacritic support, variable
+const inter = Inter({
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+// Geist Mono — code/numerics
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono-geist',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -44,8 +58,18 @@ const orgJsonLd = {
 // Root layout — minimal, no font overhead, children handle locale-specific layout
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className="h-full antialiased">
-      <body className="min-h-full flex flex-col">
+    <html lang="vi" className={`h-full antialiased ${inter.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* FOUC-safe theme bootstrap — sets .dark before paint based on
+            localStorage("ecommua-theme") | prefers-color-scheme. Must run sync. */}
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: theme bootstrap must be inline + sync
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('ecommua-theme');var m=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(m==='dark')document.documentElement.classList.add('dark');document.documentElement.style.colorScheme=m;}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <script
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD requires raw script content
