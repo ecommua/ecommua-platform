@@ -1,26 +1,161 @@
 @import "tailwindcss";
 
+/* ────────────────────────────────────────────────────────────────────
+   Ecommua design tokens — pixel-perfect rebuild.
+   Brand anchor #006699 → --brand-600. Full OKLCH ramp 50…950 hue 235.
+   Semantic tokens for light + dark; .dark class strategy.
+   ──────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* — Typography — */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-geist), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* — Brand: full OKLCH ramp at hue 235; chroma decreases at extremes — */
+  --color-brand-50:  oklch(0.975 0.012 235);
+  --color-brand-100: oklch(0.945 0.028 235);
+  --color-brand-200: oklch(0.880 0.055 235);
+  --color-brand-300: oklch(0.790 0.085 235);
+  --color-brand-400: oklch(0.680 0.105 235);
+  --color-brand-500: oklch(0.580 0.110 235);
+  --color-brand-600: oklch(0.500 0.105 235); /* #006699 anchor */
+  --color-brand-700: oklch(0.420 0.090 235);
+  --color-brand-800: oklch(0.330 0.070 235);
+  --color-brand-900: oklch(0.245 0.050 235);
+  --color-brand-950: oklch(0.165 0.032 235);
+
+  /* — Radius — */
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 28px;
+
+  /* — Shadows — */
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 1px 3px rgb(15 23 42 / 0.06);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 16px -4px rgb(15 23 42 / 0.08);
+  --shadow-lift: 0 4px 8px -2px rgb(15 23 42 / 0.06), 0 16px 32px -8px rgb(15 23 42 / 0.12);
+  --shadow-glow: 0 0 0 1px rgb(0 102 153 / 0.10), 0 8px 28px -8px rgb(0 102 153 / 0.30);
+}
+
+/* ── Semantic tokens — light (default) ───────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:           oklch(0.99 0 0);
+  --bg-elevated:  oklch(0.97 0.005 250);
+  --fg:           oklch(0.18 0.01 250);
+  --fg-muted:     oklch(0.45 0.01 250);
+  --border:       oklch(0.92 0.005 250);
+  --accent-bg:    var(--color-brand-50);
+  --accent-fg:    var(--color-brand-700);
+  --ring:         var(--color-brand-600);
+
+  /* legacy aliases (still consumed across components) */
+  --background:        var(--bg);
+  --foreground:        var(--fg);
+  --muted:             var(--bg-elevated);
+  --muted-foreground:  var(--fg-muted);
+  --card:              var(--bg);
+  --card-foreground:   var(--fg);
+}
+
+/* ── Semantic tokens — dark ──────────────────────────────────────── */
+.dark {
+  --bg:           oklch(0.13 0.005 250);
+  --bg-elevated:  oklch(0.18 0.008 250);
+  --fg:           oklch(0.97 0.005 250);
+  --fg-muted:     oklch(0.65 0.01 250);
+  --border:       oklch(0.25 0.008 250);
+  --accent-bg:    oklch(0.22 0.05 235);
+  --accent-fg:    var(--color-brand-200);
+  --ring:         var(--color-brand-400);
+
+  --background:        var(--bg);
+  --foreground:        var(--fg);
+  --muted:             var(--bg-elevated);
+  --muted-foreground:  var(--fg-muted);
+  --card:              var(--bg-elevated);
+  --card-foreground:   var(--fg);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg:           var(--bg);
+  --color-bg-elevated:  var(--bg-elevated);
+  --color-fg:           var(--fg);
+  --color-fg-muted:     var(--fg-muted);
+  --color-border:       var(--border);
+  --color-accent-bg:    var(--accent-bg);
+  --color-accent-fg:    var(--accent-fg);
+  --color-ring:         var(--ring);
+
+  /* legacy mapping for existing utilities (bg-background, text-foreground, etc.) */
+  --color-background:        var(--background);
+  --color-foreground:        var(--foreground);
+  --color-muted:             var(--muted);
+  --color-muted-foreground:  var(--muted-foreground);
+  --color-card:              var(--card);
+  --color-card-foreground:   var(--card-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Body — antialiased, kerned, Vietnamese-safe ──────────────────── */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
 }
+html.dark { color-scheme: dark; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01", "ss03";
+  letter-spacing: -0.005em;
+}
+
+.font-display { letter-spacing: -0.025em; }
+
+/* ── Backgrounds: grid + dots adapt to mode ─────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(15 23 42 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+}
+.bg-dots {
+  background-image: radial-gradient(rgb(15 23 42 / 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.dark .bg-dots {
+  background-image: radial-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px);
+}
+
+/* ── Animations ──────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-fade-up { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+::selection {
+  background: var(--color-brand-200);
+  color: var(--color-brand-900);
+}
+.dark ::selection {
+  background: var(--color-brand-800);
+  color: var(--color-brand-50);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
