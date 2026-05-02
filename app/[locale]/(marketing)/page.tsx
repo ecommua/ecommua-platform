@@ -5,6 +5,7 @@ import { HomeIntegrationsGridSection } from "@/app/_components/marketing/home/ho
 import { HomeFeatureGroupBSection } from "@/app/_components/marketing/home/home-alternating-feature-rows-section";
 import { HomeStatQuoteBandSection } from "@/app/_components/marketing/home/home-big-stat-customer-quote-band-section";
 import { HomeFinalCtaSection } from "@/app/_components/marketing/home/home-final-cta-radial-glow-section";
+import { HomeGiantWordmarkBandSection } from "@/app/_components/marketing/home/home-giant-wordmark-band-section";
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -22,6 +23,7 @@ export default async function HomePage({ params }: Props) {
       <HomeFeatureGroupBSection />
       <HomeStatQuoteBandSection />
       <HomeFinalCtaSection locale={locale} />
+      <HomeGiantWordmarkBandSection />
     </>
   );
 }
