@@ -313,16 +313,18 @@ export function MarketingDockNav({ locale }: { locale: string }) {
   };
   const lastItemId = items[items.length - 1]?.id;
 
-  const dockBgClass = 'bg-[#219EBC] dark:bg-white/15 backdrop-blur-2xl shadow-2xl shadow-[#023047]/30 dark:shadow-white/5 ring-1 ring-[#023047]/20 dark:ring-white/10';
+  const dockStyle: React.CSSProperties = mode === 'dark'
+    ? { backgroundColor: 'rgba(255,255,255,0.15)', boxShadow: '0 25px 50px -12px rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }
+    : { backgroundColor: '#219EBC', boxShadow: '0 25px 50px -12px rgba(2,48,71,0.4)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' };
 
   return (
     <nav
       onMouseEnter={handleDockEnter}
       onMouseLeave={handleDockLeave}
       aria-label="Primary"
+      style={dockStyle}
       className={cn(
-        'fixed z-50',
-        dockBgClass,
+        'fixed z-50 ring-1 ring-white/10',
         'bottom-6 right-6 sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto',
         'rounded-2xl sm:px-5 sm:py-3 px-3 py-5',
         'flex flex-col sm:flex-row items-center justify-center',
