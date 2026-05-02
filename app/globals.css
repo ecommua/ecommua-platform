@@ -1,92 +1,124 @@
 @import "tailwindcss";
 
-/* ────────────────────────────────────────────────────────────────────
-   Ecommua design tokens — pixel-perfect rebuild.
-   Brand anchor #006699 → --brand-600. Full OKLCH ramp 50…950 hue 235.
-   Semantic tokens for light + dark; .dark class strategy.
-   ──────────────────────────────────────────────────────────────────── */
+/* Ecommua design tokens. Anchors:
+   #8ecae6 sky-blue-light · #219ebc blue-green · #023047 deep-space-blue
+   #ffb703 amber-flame · #fb8500 princeton-orange */
 
 @theme {
-  /* — Typography — */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-geist), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* — Brand: full OKLCH ramp at hue 235; chroma decreases at extremes — */
-  --color-brand-50:  oklch(0.975 0.012 235);
-  --color-brand-100: oklch(0.945 0.028 235);
-  --color-brand-200: oklch(0.880 0.055 235);
-  --color-brand-300: oklch(0.790 0.085 235);
-  --color-brand-400: oklch(0.680 0.105 235);
-  --color-brand-500: oklch(0.580 0.110 235);
-  --color-brand-600: oklch(0.500 0.105 235); /* #006699 anchor */
-  --color-brand-700: oklch(0.420 0.090 235);
-  --color-brand-800: oklch(0.330 0.070 235);
-  --color-brand-900: oklch(0.245 0.050 235);
-  --color-brand-950: oklch(0.165 0.032 235);
+  /* — Brand ramp built from #219ebc anchor (600) — */
+  --color-brand-50:  #ecf7fb;
+  --color-brand-100: #d4ecf4;
+  --color-brand-200: #aedce9;
+  --color-brand-300: #8ecae6;
+  --color-brand-400: #5cb6d4;
+  --color-brand-500: #3aa9c8;
+  --color-brand-600: #219ebc;
+  --color-brand-700: #1b8aa8;
+  --color-brand-800: #145d76;
+  --color-brand-900: #073b55;
+  --color-brand-950: #023047;
 
-  /* — Radius — */
+  /* — Accent ramp built from #fb8500 (600) + #ffb703 (400) — */
+  --color-accent-50:  #fff7e6;
+  --color-accent-100: #ffe9b8;
+  --color-accent-200: #ffd270;
+  --color-accent-300: #ffc23a;
+  --color-accent-400: #ffb703;
+  --color-accent-500: #fda003;
+  --color-accent-600: #fb8500;
+  --color-accent-700: #d77000;
+  --color-accent-800: #a05400;
+  --color-accent-900: #6a3700;
+  --color-accent-950: #3d2000;
+
+  /* — Raw palette literals — */
+  --color-sky-blue-light:   #8ecae6;
+  --color-blue-green:       #219ebc;
+  --color-deep-space-blue:  #023047;
+  --color-amber-flame:      #ffb703;
+  --color-princeton-orange: #fb8500;
+
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-2xl: 20px;
   --radius-3xl: 28px;
 
-  /* — Shadows — */
-  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 1px 3px rgb(15 23 42 / 0.06);
-  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 16px -4px rgb(15 23 42 / 0.08);
-  --shadow-lift: 0 4px 8px -2px rgb(15 23 42 / 0.06), 0 16px 32px -8px rgb(15 23 42 / 0.12);
-  --shadow-glow: 0 0 0 1px rgb(0 102 153 / 0.10), 0 8px 28px -8px rgb(0 102 153 / 0.30);
+  --shadow-soft: 0 1px 2px rgb(2 48 71 / 0.05), 0 1px 3px rgb(2 48 71 / 0.07);
+  --shadow-card: 0 1px 2px rgb(2 48 71 / 0.05), 0 4px 16px -4px rgb(2 48 71 / 0.10);
+  --shadow-lift: 0 4px 8px -2px rgb(2 48 71 / 0.08), 0 16px 32px -8px rgb(2 48 71 / 0.14);
+  --shadow-glow: 0 0 0 1px rgb(33 158 188 / 0.14), 0 8px 28px -8px rgb(33 158 188 / 0.35);
 }
 
-/* ── Semantic tokens — light (default) ───────────────────────────── */
+/* ── Light (default) ───────────────────────────────────────────────── */
 :root {
-  --bg:           oklch(0.99 0 0);
-  --bg-elevated:  oklch(0.97 0.005 250);
-  --fg:           oklch(0.18 0.01 250);
-  --fg-muted:     oklch(0.45 0.01 250);
-  --border:       oklch(0.92 0.005 250);
-  --accent-bg:    var(--color-brand-50);
-  --accent-fg:    var(--color-brand-700);
-  --ring:         var(--color-brand-600);
+  --bg:             #ffffff;
+  --bg-elevated:    #f4fafd;
+  --bg-muted:       #eaf4f9;
+  --fg:             #023047;
+  --fg-muted:       #3d6478;
+  --border:         #cfe5f0;
+  --brand:          #219ebc;
+  --brand-strong:   #1b8aa8;
+  --brand-fg:       #ffffff;
+  --accent:         #fb8500;
+  --accent-strong:  #d77000;
+  --accent-fg:      #ffffff;
+  --ring:           #219ebc;
 
-  /* legacy aliases (still consumed across components) */
+  --accent-bg:    var(--bg-muted);
   --background:        var(--bg);
   --foreground:        var(--fg);
-  --muted:             var(--bg-elevated);
+  --muted:             var(--bg-muted);
   --muted-foreground:  var(--fg-muted);
   --card:              var(--bg);
   --card-foreground:   var(--fg);
 }
 
-/* ── Semantic tokens — dark ──────────────────────────────────────── */
+/* ── Dark ──────────────────────────────────────────────────────────── */
 .dark {
-  --bg:           oklch(0.13 0.005 250);
-  --bg-elevated:  oklch(0.18 0.008 250);
-  --fg:           oklch(0.97 0.005 250);
-  --fg-muted:     oklch(0.65 0.01 250);
-  --border:       oklch(0.25 0.008 250);
-  --accent-bg:    oklch(0.22 0.05 235);
-  --accent-fg:    var(--color-brand-200);
-  --ring:         var(--color-brand-400);
+  --bg:             #023047;
+  --bg-elevated:    #0a3d57;
+  --bg-muted:       #0e4865;
+  --fg:             #eaf4f9;
+  --fg-muted:       #8ecae6;
+  --border:         #0e4865;
+  --brand:          #8ecae6;
+  --brand-strong:   #219ebc;
+  --brand-fg:       #023047;
+  --accent:         #ffb703;
+  --accent-strong:  #fb8500;
+  --accent-fg:      #023047;
+  --ring:           #8ecae6;
 
+  --accent-bg:    var(--bg-muted);
   --background:        var(--bg);
   --foreground:        var(--fg);
-  --muted:             var(--bg-elevated);
+  --muted:             var(--bg-muted);
   --muted-foreground:  var(--fg-muted);
   --card:              var(--bg-elevated);
   --card-foreground:   var(--fg);
 }
 
 @theme inline {
-  --color-bg:           var(--bg);
-  --color-bg-elevated:  var(--bg-elevated);
-  --color-fg:           var(--fg);
-  --color-fg-muted:     var(--fg-muted);
-  --color-border:       var(--border);
-  --color-accent-bg:    var(--accent-bg);
-  --color-accent-fg:    var(--accent-fg);
-  --color-ring:         var(--ring);
+  --color-bg:            var(--bg);
+  --color-bg-elevated:   var(--bg-elevated);
+  --color-bg-muted:      var(--bg-muted);
+  --color-fg:            var(--fg);
+  --color-fg-muted:      var(--fg-muted);
+  --color-border:        var(--border);
+  --color-brand:         var(--brand);
+  --color-brand-strong:  var(--brand-strong);
+  --color-brand-fg:      var(--brand-fg);
+  --color-accent:        var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg:     var(--accent-fg);
+  --color-accent-bg:     var(--accent-bg);
+  --color-ring:          var(--ring);
 
   /* legacy mapping for existing utilities (bg-background, text-foreground, etc.) */
   --color-background:        var(--background);
