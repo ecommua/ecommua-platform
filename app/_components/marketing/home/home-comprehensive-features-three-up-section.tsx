@@ -11,7 +11,7 @@ import { Container } from "@/app/_components/ui/container-wrapper";
 
 export function HomeFeatureGroupASection({ locale }: { locale: string }) {
   return (
-    <section className="bg-bg py-24 sm:py-28">
+    <section className="bg-bg-elevated dark:bg-deep-space-blue/40 py-24 sm:py-28">
       <Container size="xl">
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-bg-elevated ring-1 ring-border px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-brand">
@@ -30,7 +30,7 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
           {/* 30+ Section — grid of theme thumbnails */}
-          <div className="rounded-3xl bg-bg-elevated ring-1 ring-border p-7">
+          <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7">
             <h3 className="font-display text-2xl font-bold tracking-tight text-fg">30+ Section</h3>
             <p className="mt-2 text-sm leading-relaxed text-fg-muted">
               Hero, PDP, gallery, pricing, checkout. Block-based — kéo thả, hoán đổi, không vỡ layout.
@@ -53,7 +53,7 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
           </div>
 
           {/* Style Guide — stacked color tokens */}
-          <div className="rounded-3xl bg-bg-elevated ring-1 ring-border p-7 flex flex-col">
+          <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7 flex flex-col">
             <div className="flex-1 flex items-center justify-center py-10">
               <div className="relative">
                 <div className="absolute -left-10 -top-2 h-36 w-28 rounded-2xl bg-fg/10 ring-1 ring-border rotate-[-10deg] shadow-lg" />
@@ -75,7 +75,7 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
           </div>
 
           {/* 25+ Trang — tall single preview */}
-          <div className="rounded-3xl bg-bg-elevated ring-1 ring-border p-7">
+          <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7">
             <h3 className="font-display text-2xl font-bold tracking-tight text-fg">25+ Trang</h3>
             <p className="mt-2 text-sm leading-relaxed text-fg-muted">
               Home, listing, PDP, cart, checkout, account, blog, 404. Đầy đủ trang để đi-vào-vận-hành luôn.
