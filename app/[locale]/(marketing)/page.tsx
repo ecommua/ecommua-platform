@@ -1,40 +1,27 @@
-// Homepage — hero + features + browse themes CTA
-export default function HomePage() {
+import { HomeHeroSection } from "@/app/_components/marketing/home/home-hero-mockup-grid-section";
+import { HomeTrustStripSection } from "@/app/_components/marketing/home/home-trust-partners-strip-section";
+import { HomeFeatureGroupASection } from "@/app/_components/marketing/home/home-comprehensive-features-three-up-section";
+import { HomeIntegrationsGridSection } from "@/app/_components/marketing/home/home-integrations-platform-grid-section";
+import { HomeFeatureGroupBSection } from "@/app/_components/marketing/home/home-alternating-feature-rows-section";
+import { HomeStatQuoteBandSection } from "@/app/_components/marketing/home/home-big-stat-customer-quote-band-section";
+import { HomeFinalCtaSection } from "@/app/_components/marketing/home/home-final-cta-radial-glow-section";
+
+interface Props {
+  params: Promise<{ locale: string }>;
+}
+
+// Homepage — pixel-match Comoret ref. Sections in order per redesign-brief-pixel-perfect.md.
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-indigo-50 to-white py-24 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-          Marketplace chủ đề thương mại điện tử
-        </h1>
-        <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-          Khám phá và cài đặt chủ đề đẹp cho cửa hàng của bạn
-        </p>
-        <a
-          href="/themes"
-          className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
-        >
-          Khám phá chủ đề
-        </a>
-      </section>
-
-      {/* Features */}
-      <section className="py-20 px-4 max-w-6xl mx-auto">
-        <h2 className="text-2xl font-bold text-center text-gray-900 mb-12">Tại sao chọn ecommua?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { title: 'Dễ cài đặt', desc: 'Một click để áp dụng chủ đề vào cửa hàng', icon: '⚡' },
-            { title: 'Thiết kế chuyên nghiệp', desc: 'Hàng chục mẫu thiết kế đẹp, chuẩn UX', icon: '🎨' },
-            { title: 'Hỗ trợ đa ngành', desc: 'Thời trang, điện tử, F&B và nhiều hơn nữa', icon: '🏪' },
-          ].map((f) => (
-            <div key={f.title} className="bg-white border rounded-xl p-6 text-center shadow-sm">
-              <div className="text-3xl mb-3">{f.icon}</div>
-              <h3 className="font-semibold text-gray-900 mb-2">{f.title}</h3>
-              <p className="text-sm text-gray-500">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <HomeHeroSection locale={locale} />
+      <HomeTrustStripSection />
+      <HomeFeatureGroupASection locale={locale} />
+      <HomeIntegrationsGridSection />
+      <HomeFeatureGroupBSection />
+      <HomeStatQuoteBandSection />
+      <HomeFinalCtaSection locale={locale} />
     </>
-  )
+  );
 }
