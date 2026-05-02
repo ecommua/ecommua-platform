@@ -35,8 +35,8 @@ export function PricingTier({
       className={cn(
         "relative flex flex-col rounded-3xl p-8 transition-transform",
         featured
-          ? "bg-slate-900 text-white shadow-lift ring-1 ring-slate-800 lg:scale-[1.03]"
-          : "bg-white ring-1 ring-slate-200 shadow-card hover:shadow-lift",
+          ? "bg-fg text-white shadow-lift ring-1 ring-bg-elevated lg:scale-[1.03]"
+          : "bg-white ring-1 ring-border shadow-card hover:shadow-lift",
       )}
     >
       {featured && (
@@ -58,12 +58,12 @@ export function PricingTier({
         <h3
           className={cn(
             "font-display text-xl font-semibold tracking-tight",
-            featured ? "text-white" : "text-slate-900",
+            featured ? "text-white" : "text-fg",
           )}
         >
           {name}
         </h3>
-        <p className={cn("mt-1.5 text-sm leading-relaxed", featured ? "text-slate-400" : "text-slate-500")}>
+        <p className={cn("mt-1.5 text-sm leading-relaxed", featured ? "text-fg-muted" : "text-fg-muted")}>
           {tagline}
         </p>
 
@@ -72,13 +72,13 @@ export function PricingTier({
           <span
             className={cn(
               "font-display text-5xl font-bold tracking-[-0.04em]",
-              featured ? "text-white" : "text-slate-900",
+              featured ? "text-white" : "text-fg",
             )}
           >
             {price}
           </span>
           {priceSuffix && (
-            <span className={cn("text-sm font-medium", featured ? "text-slate-400" : "text-slate-500")}>
+            <span className={cn("text-sm font-medium", featured ? "text-fg-muted" : "text-fg-muted")}>
               {priceSuffix}
             </span>
           )}
@@ -90,8 +90,8 @@ export function PricingTier({
           className={cn(
             "mt-7 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl font-semibold transition-all",
             featured
-              ? "bg-white text-slate-900 hover:bg-slate-100 shadow-lift"
-              : "bg-slate-900 text-white hover:bg-slate-800",
+              ? "bg-white text-fg hover:bg-bg-muted shadow-lift"
+              : "bg-fg text-white hover:bg-bg-elevated",
           )}
         >
           {ctaLabel}
@@ -107,7 +107,7 @@ export function PricingTier({
               key={f}
               className={cn(
                 "flex items-start gap-3 text-sm",
-                featured ? "text-slate-300" : "text-slate-700",
+                featured ? "text-fg-muted" : "text-fg-muted",
               )}
             >
               <span

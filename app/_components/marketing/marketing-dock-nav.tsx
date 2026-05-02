@@ -1,8 +1,8 @@
 'use client';
 
 /**
- * MarketingDockNav — macOS-style floating dock, 1:1 port of portfolio-vietcq
- * Dock.jsx with platform palette (lime/emerald/teal/amber/slate/zinc/stone).
+ * MarketingDockNav — macOS-style floating dock, Bukvic palette
+ * (sky-blue-light / blue-green / deep-space-blue / amber-flame / princeton-orange).
  *
  * Behavior:
  *  - Hover any item → scale-125, neighbors get extra margin (sm:mx-4 vs 2.5)
@@ -25,6 +25,7 @@ import {
   BookOpenIcon,
   ArrowRightOnRectangleIcon,
   GlobeAltIcon,
+  InformationCircleIcon,
 } from '@heroicons/react/24/solid';
 import { FaSun, FaMoon } from 'react-icons/fa6';
 import { cn } from '../lib/cn-class-merger';
@@ -40,11 +41,11 @@ type NavItem = {
 };
 
 const DEFAULT_NAVIGATION_ITEMS: NavItem[] = [
-  { id: 'home',    label: 'Home',    link: '',         icon: HomeIcon,            bg: 'bg-gradient-to-br from-cyan-500 to-cyan-700' },
-  { id: 'about',   label: 'About',   link: '/about',   icon: UserIcon,            bg: 'bg-gradient-to-br from-emerald-500 to-emerald-700' },
-  { id: 'themes',  label: 'Themes',  link: '/themes',  icon: RectangleStackIcon,  bg: 'bg-gradient-to-br from-teal-500 to-teal-700' },
-  { id: 'pricing', label: 'Pricing', link: '/pricing', icon: TagIcon,             bg: 'bg-gradient-to-br from-sky-500 to-sky-700' },
-  { id: 'blog',    label: 'Blog',    link: '/blog',    icon: BookOpenIcon,        bg: 'bg-gradient-to-br from-slate-500 to-slate-700' },
+  { id: 'home',    label: 'Home',    link: '',         icon: HomeIcon,              bg: 'bg-gradient-to-br from-[#219EBC] to-[#1A7E96]' },
+  { id: 'about',   label: 'About',   link: '/about',   icon: InformationCircleIcon, bg: 'bg-gradient-to-br from-[#8ECAE6] to-[#5BAFD0]' },
+  { id: 'themes',  label: 'Themes',  link: '/themes',  icon: RectangleStackIcon,    bg: 'bg-gradient-to-br from-[#FFB703] to-[#E0A000]' },
+  { id: 'pricing', label: 'Pricing', link: '/pricing', icon: TagIcon,               bg: 'bg-gradient-to-br from-[#FB8500] to-[#E07700]' },
+  { id: 'blog',    label: 'Blog',    link: '/blog',    icon: BookOpenIcon,          bg: 'bg-gradient-to-br from-[#023047] to-[#0A4763]' },
 ];
 
 // ─── Theme handling (mirrors marketing-theme-toggle.tsx) ──────────────────
@@ -125,7 +126,7 @@ function LogoButton({
       onMouseLeave={onLeave}
       className={cn(
         'relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl transition-all duration-500 ease-out transform cursor-pointer',
-        'bg-accent/20 hover:bg-accent/30 ring-1 ring-accent/30',
+        'bg-white shadow-lg',
         isHovered ? 'scale-125' : 'hover:scale-110',
       )}
       title="ecommua"
@@ -156,19 +157,19 @@ function ThemeToggleButton({
       className={cn(
         'relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl transition-all duration-500 ease-out transform cursor-pointer active:scale-95',
         isHovered ? 'scale-125' : 'hover:scale-110',
-        mode === 'dark' ? 'bg-yellow-600/20 hover:bg-yellow-600/30' : 'bg-slate-600/20 hover:bg-slate-600/30',
+        mode === 'dark' ? 'bg-[#FFB703]/20 hover:bg-[#FFB703]/30' : 'bg-[#5C7889]/20 hover:bg-[#5C7889]/30',
       )}
       title={`Switch to ${next} mode`}
       aria-label={`Switch to ${next} mode`}
     >
       {isHovered ? (
         mode === 'dark'
-          ? <FaMoon size={iconSize} className="text-slate-600 transition-all duration-500" />
-          : <FaSun size={iconSize} className="text-yellow-600 transition-all duration-500" />
+          ? <FaMoon size={iconSize} className="text-[#5C7889] transition-all duration-500" />
+          : <FaSun size={iconSize} className="text-[#FFB703] transition-all duration-500" />
       ) : (
         mode === 'dark'
-          ? <FaSun size={idleSize} className="text-yellow-600 transition-all duration-500" />
-          : <FaMoon size={idleSize} className="text-slate-600 transition-all duration-500" />
+          ? <FaSun size={idleSize} className="text-[#FFB703] transition-all duration-500" />
+          : <FaMoon size={idleSize} className="text-[#5C7889] transition-all duration-500" />
       )}
       <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap hidden md:block">
         {mode === 'dark' ? 'Light mode' : 'Dark mode'}
@@ -197,16 +198,41 @@ function LocaleButton({
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       className={cn(
-        'relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl transition-all duration-500 ease-out transform cursor-pointer text-white shadow-lg',
-        'bg-gradient-to-br from-stone-500 to-stone-700',
+        'relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl transition-all duration-500 ease-out transform cursor-pointer text-white shadow-lg overflow-hidden',
+        'bg-gradient-to-br from-[#5C7889] to-[#3D5666]',
         isHovered ? 'scale-125' : 'hover:scale-110',
       )}
       title={`Switch to ${otherLocale.toUpperCase()}`}
       aria-label={`Switch to ${otherLocale.toUpperCase()}`}
     >
-      <GlobeAltIcon className={isMobile ? 'w-7 h-7' : 'w-10 h-10'} />
-      <span className="absolute bottom-1 right-1 text-[9px] font-extrabold uppercase leading-none">{otherLocale}</span>
-      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap hidden md:block">
+      {/* SVG Flag based on otherLocale */}
+      {otherLocale === 'vi' ? (
+        <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="200" fill="#da251d"/>
+          <polygon fill="#ffcd00" points="100,40 113.5,81.4 157.1,81.5 121.9,107.1 135.3,148.5 100,123 64.7,148.5 78.1,107.1 42.9,81.5 86.5,81.4"/>
+        </svg>
+      ) : (
+        <svg viewBox="0 0 60 30" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <clipPath id="s">
+            <path d="M0,0 v30 h60 v-30 z"/>
+          </clipPath>
+          <clipPath id="t">
+            <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/>
+          </clipPath>
+          <g clipPath="url(#s)">
+            <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t)" stroke="#C8102E" strokeWidth="4"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+          </g>
+        </svg>
+      )}
+      
+      {/* Dark tint overlay to match dock style somewhat, or keep it bright: we keep it very light so flag is visible */}
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+      
+      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap hidden md:block z-10">
         {otherLocale === 'vi' ? 'Tiếng Việt' : 'English'}
         <span className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-zinc-900 dark:border-t-white" />
       </span>
@@ -287,7 +313,7 @@ export function MarketingDockNav({ locale }: { locale: string }) {
   };
   const lastItemId = items[items.length - 1]?.id;
 
-  const dockBgClass = 'bg-black/15 dark:bg-white/15 backdrop-blur-2xl shadow-2xl shadow-black/20 dark:shadow-white/10';
+  const dockBgClass = 'bg-[rgb(2_48_71_/_0.18)] dark:bg-white/15 backdrop-blur-2xl shadow-2xl shadow-[rgb(2_48_71_/_0.25)] dark:shadow-white/5 ring-1 ring-[rgb(2_48_71_/_0.18)] dark:ring-white/10';
 
   return (
     <nav

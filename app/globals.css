@@ -1,27 +1,33 @@
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════════════════════════
-   Ecommua design tokens — "Slate + Cyan" palette (Stripe/Linear-grade).
-   Neutral slate surfaces + cyan accent for CTAs and focus.
-   Token NAMES preserved for backward-compat; only values changed.
+   Ecommua design tokens — "Bukvic" palette (5-color canonical).
+     #8ECAE6  sky-blue-light
+     #219EBC  blue-green
+     #023047  deep-space-blue
+     #FFB703  amber-flame
+     #FB8500  princeton-orange
 
-   PER-TOKEN ROLE TABLE (used by all components)
+   NOTE: If you swap palette, update both `:root` and `.dark` blocks AND
+   the `--color-*` literal aliases at the bottom of @theme.
+
+   PER-TOKEN ROLE TABLE
    ─────────────────────────────────────────────────────────────────────
    Token              Role                              Light   / Dark
    ─────────────────────────────────────────────────────────────────────
-   --bg               Page background                   #FFFFFF / #020617
-   --bg-elevated      Card surface, dock glass          #F8FAFC / #0F172A
-   --bg-muted         Subtle bg, badge bg               #F1F5F9 / #1E293B
-   --fg               Primary text, headings            #0F172A / #F8FAFC
-   --fg-muted         Secondary text                    #64748B / #94A3B8
-   --border           Card border, divider              #E2E8F0 / #1E293B
-   --brand            Brand-strong text/icon            #0F172A / #06B6D4
-   --brand-strong     Brand hover state                 #020617 / #22D3EE
-   --brand-fg         Text on brand bg                  #FFFFFF / #020617
-   --accent           CTA, highlight, accent text       #0891B2 / #06B6D4
-   --accent-strong    CTA hover                         #0E7490 / #22D3EE
-   --accent-fg        Text on cyan CTA                  #FFFFFF / #020617
-   --ring             Focus ring                        #06B6D4 / #67E8F9
+   --bg               Page background                   #FFFFFF / #01161F
+   --bg-elevated      Card surface                      #F4FAFC / #023047
+   --bg-muted         Subtle bg, badge bg               #E8F2F7 / #0A4763
+   --fg               Primary text                      #023047 / #FFFFFF
+   --fg-muted         Secondary text                    #5C7889 / #8ECAE6
+   --border           Card border                       #C9DEE9 / #0F4762
+   --brand            Brand secondary                   #219EBC / #8ECAE6
+   --brand-strong     Brand hover                       #1A7E96 / #B8DDED
+   --brand-fg         Text on brand bg                  #FFFFFF / #023047
+   --accent           Primary CTA                       #FB8500 / #FFB703
+   --accent-strong    CTA hover                         #E07700 / #FB8500
+   --accent-fg        Text on accent CTA                #FFFFFF / #023047
+   --ring             Focus ring                        #219EBC / #FFB703
    ════════════════════════════════════════════════════════════════════════ */
 
 @theme {
@@ -29,43 +35,44 @@
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-geist), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* — Brand ramp: slate scale anchored on slate-900 #0F172A — */
-  --color-brand-50:  #F8FAFC;
-  --color-brand-100: #F1F5F9;
-  --color-brand-200: #E2E8F0;
-  --color-brand-300: #CBD5E1;
-  --color-brand-400: #94A3B8;
-  --color-brand-500: #64748B;
-  --color-brand-600: #475569;
-  --color-brand-700: #334155;
-  --color-brand-800: #1E293B;
-  --color-brand-900: #0F172A;
-  --color-brand-950: #020617;
+  /* — Brand ramp: anchored on blue-green #219EBC — */
+  --color-brand-50:  #EAF6FA;
+  --color-brand-100: #D2EAF1;
+  --color-brand-200: #A7D6E5;
+  --color-brand-300: #6FB9D0;
+  --color-brand-400: #3FA9C5;
+  --color-brand-500: #219EBC;
+  --color-brand-600: #1A8AA5;
+  --color-brand-700: #157287;
+  --color-brand-800: #0F5868;
+  --color-brand-900: #0A4150;
+  --color-brand-950: #023047;
 
-  /* — Accent ramp: cyan scale anchored on cyan-600 #0891B2 — */
-  --color-accent-50:  #ECFEFF;
-  --color-accent-100: #CFFAFE;
-  --color-accent-200: #A5F3FC;
-  --color-accent-300: #67E8F9;
-  --color-accent-400: #22D3EE;
-  --color-accent-500: #06B6D4;
-  --color-accent-600: #0891B2;
-  --color-accent-700: #0E7490;
-  --color-accent-800: #155E75;
-  --color-accent-900: #164E63;
-  --color-accent-950: #083344;
+  /* — Accent ramp: anchored on princeton-orange #FB8500 — */
+  --color-accent-50:  #FFF6EC;
+  --color-accent-100: #FFE6CC;
+  --color-accent-200: #FFCD99;
+  --color-accent-300: #FFAB55;
+  --color-accent-400: #FF9622;
+  --color-accent-500: #FB8500;
+  --color-accent-600: #E07700;
+  --color-accent-700: #B85F00;
+  --color-accent-800: #8C4700;
+  --color-accent-900: #5E2F00;
+  --color-accent-950: #341A00;
 
-  /* — Legacy literal aliases (names kept, values point to new palette) — */
-  --color-sky-blue-light:   #A5F3FC; /* was lime-tint, now cyan-200 */
-  --color-blue-green:       #0891B2; /* now cyan-600 */
-  --color-deep-space-blue:  #020617; /* now slate-950 */
-  --color-amber-flame:      #22D3EE; /* now cyan-400 */
-  --color-princeton-orange: #06B6D4; /* now cyan-500 */
+  /* — Bukvic 5-color canonical literals — */
+  --color-sky-blue-light:   #8ECAE6;
+  --color-blue-green:       #219EBC;
+  --color-deep-space-blue:  #023047;
+  --color-amber-flame:      #FFB703;
+  --color-princeton-orange: #FB8500;
 
-  /* Direct semantic literal aliases */
-  --color-prussian-blue: #020617;
-  --color-marigold:      #06B6D4;
-  --color-alabaster:     #F8FAFC;
+  --black: #000000ff;
+  --prussian-blue: #14213dff;
+  --orange: #fca311ff;
+  --alabaster-grey: #e5e5e5ff;
+  --white: #ffffffff;
 
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -76,24 +83,24 @@
   --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.05), 0 1px 3px rgb(0 0 0 / 0.07);
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.05), 0 4px 16px -4px rgb(0 0 0 / 0.10);
   --shadow-lift: 0 4px 8px -2px rgb(0 0 0 / 0.08), 0 16px 32px -8px rgb(0 0 0 / 0.14);
-  --shadow-glow: 0 0 0 1px rgb(6 182 212 / 0.18), 0 8px 28px -8px rgb(6 182 212 / 0.35);
+  --shadow-glow: 0 0 0 1px rgb(33 158 188 / 0.18), 0 8px 28px -8px rgb(251 133 0 / 0.35);
 }
 
-/* ── Light (default) — white bg, slate-900 fg, cyan-600 accent ─────────── */
+/* ── Light — white bg, deep-space-blue fg, princeton-orange CTA ────────── */
 :root {
   --bg:             #FFFFFF; /* page background */
-  --bg-elevated:    #F8FAFC; /* slate-50 — card surface, dock glass */
-  --bg-muted:       #F1F5F9; /* slate-100 — subtle bg, badge bg */
-  --fg:             #0F172A; /* slate-900 — primary text, headings */
-  --fg-muted:       #64748B; /* slate-500 — secondary text */
-  --border:         #E2E8F0; /* slate-200 — card border, divider */
-  --brand:          #0F172A; /* slate-900 — brand-strong on white */
-  --brand-strong:   #020617; /* slate-950 — brand hover */
+  --bg-elevated:    #F4FAFC; /* card surface (sky-blue-light @ 6%) */
+  --bg-muted:       #E8F2F7; /* subtle bg (sky-blue-light @ 18%) */
+  --fg:             #023047; /* deep-space-blue — primary text */
+  --fg-muted:       #5C7889; /* mid-tone — secondary text */
+  --border:         #C9DEE9; /* sky-blue-light tint — card border */
+  --brand:          #219EBC; /* blue-green — brand secondary */
+  --brand-strong:   #1A7E96; /* blue-green darker — brand hover */
   --brand-fg:       #FFFFFF; /* text on brand bg */
-  --accent:         #0891B2; /* cyan-600 — CTA, accent text on white */
-  --accent-strong:  #0E7490; /* cyan-700 — CTA hover */
-  --accent-fg:      #FFFFFF; /* text on cyan CTA */
-  --ring:           #06B6D4; /* cyan-500 — focus ring */
+  --accent:         #FB8500; /* princeton-orange — primary CTA */
+  --accent-strong:  #E07700; /* princeton-orange darker — CTA hover */
+  --accent-fg:      #FFFFFF; /* text on accent CTA */
+  --ring:           #219EBC; /* blue-green — focus ring */
 
   --accent-bg:    var(--bg-muted);
   --background:        var(--bg);
@@ -104,21 +111,21 @@
   --card-foreground:   var(--fg);
 }
 
-/* ── Dark — slate-950 bg, slate-50 fg, cyan-500 accent ─────────────────── */
+/* ── Dark — deep-space-blue bg, white fg, amber-flame CTA ──────────────── */
 .dark {
-  --bg:             #020617; /* slate-950 — page background */
-  --bg-elevated:    #0F172A; /* slate-900 — card surface */
-  --bg-muted:       #1E293B; /* slate-800 — subtle bg */
-  --fg:             #F8FAFC; /* slate-50 — primary text */
-  --fg-muted:       #94A3B8; /* slate-400 — secondary text */
-  --border:         #1E293B; /* slate-800 — card border */
-  --brand:          #06B6D4; /* cyan-500 — brand pop on dark */
-  --brand-strong:   #22D3EE; /* cyan-400 — hover */
-  --brand-fg:       #020617; /* text on cyan brand */
-  --accent:         #06B6D4; /* cyan-500 — CTA */
-  --accent-strong:  #22D3EE; /* cyan-400 — CTA hover */
-  --accent-fg:      #020617; /* text on cyan CTA */
-  --ring:           #67E8F9; /* cyan-300 — focus ring */
+  --bg:             #01161F; /* near-black tinted deep-space — page background */
+  --bg-elevated:    #023047; /* deep-space-blue — card surface */
+  --bg-muted:       #0A4763; /* lifted deep-space — subtle bg */
+  --fg:             #FFFFFF; /* primary text */
+  --fg-muted:       #8ECAE6; /* sky-blue-light — secondary text pops on dark */
+  --border:         #0F4762; /* mid deep-space — card border */
+  --brand:          #8ECAE6; /* sky-blue-light — brand pop on dark */
+  --brand-strong:   #B8DDED; /* sky-blue-light lifted — brand hover */
+  --brand-fg:       #023047; /* deep-space-blue text on brand */
+  --accent:         #FFB703; /* amber-flame — primary CTA pops on deep blue */
+  --accent-strong:  #FB8500; /* princeton-orange — CTA hover */
+  --accent-fg:      #023047; /* deep-space-blue text on accent */
+  --ring:           #FFB703; /* amber-flame — focus ring */
 
   --accent-bg:    var(--bg-muted);
   --background:        var(--bg);
@@ -176,8 +183,8 @@ body {
 /* ── Backgrounds: grid + dots adapt to mode ─────────────────────── */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgb(15 23 42 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(15 23 42 / 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgb(2 48 71 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(2 48 71 / 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 .dark .bg-grid {
@@ -186,7 +193,7 @@ body {
     linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
 }
 .bg-dots {
-  background-image: radial-gradient(rgb(15 23 42 / 0.10) 1px, transparent 1px);
+  background-image: radial-gradient(rgb(2 48 71 / 0.10) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 .dark .bg-dots {
@@ -221,11 +228,11 @@ body {
 
 ::selection {
   background: var(--color-accent-300);
-  color: var(--color-brand-900);
+  color: var(--color-deep-space-blue);
 }
 .dark ::selection {
-  background: var(--color-accent-500);
-  color: #020617;
+  background: var(--color-amber-flame);
+  color: var(--color-deep-space-blue);
 }
 
 @media (prefers-reduced-motion: reduce) {

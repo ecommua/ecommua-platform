@@ -17,7 +17,7 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
             className="pointer-events-none absolute inset-x-0 bottom-[-40%] h-[120%]"
             style={{
               background:
-                "radial-gradient(50% 50% at 50% 80%, rgb(197 249 75 / 0.55) 0%, rgb(176 230 58 / 0.22) 35%, transparent 70%)",
+                "radial-gradient(50% 50% at 50% 80%, var(--orange) 0%, transparent 70%)",
             }}
           />
           {/* subtle top sheen */}
@@ -28,12 +28,12 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
 
           <div className="relative text-center">
             <h2 className="mx-auto max-w-3xl font-display text-5xl sm:text-6xl lg:text-[80px] font-bold tracking-[-0.03em] leading-[1.02] text-fg">
-              Lên store đầu tiên
+              Mở cửa hàng đầu tiên
               <br />
               <span className="text-accent">trong tuần này.</span>
             </h2>
             <p className="mx-auto mt-7 max-w-md text-[15px] leading-relaxed text-fg-muted">
-              Tải về, chạy lệnh, cắm domain. Dữ liệu của bạn, server của bạn. Không phí ẩn, không bị khoá.
+              Tải về, chạy lệnh, gắn domain. Dữ liệu của bạn, server của bạn. Không phí ẩn, không bị khóa.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link

@@ -36,7 +36,7 @@ export function MarketingHeroHighImpact({ locale }: { locale: string }) {
           </div>
 
           {/* Display heading */}
-          <h1 className="mt-7 font-display text-[40px] sm:text-[64px] lg:text-[80px] font-bold tracking-[-0.035em] leading-[1.02] text-slate-900">
+          <h1 className="mt-7 font-display text-[40px] sm:text-[64px] lg:text-[80px] font-bold tracking-[-0.035em] leading-[1.02] text-fg">
             Theme bán sẵn cho<br />
             <span className="relative inline-block">
               <span className="relative z-10 bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500 bg-clip-text text-transparent">
@@ -49,7 +49,7 @@ export function MarketingHeroHighImpact({ locale }: { locale: string }) {
           </h1>
 
           {/* Sub */}
-          <p className="mx-auto mt-7 max-w-xl text-lg text-slate-600 leading-relaxed">
+          <p className="mx-auto mt-7 max-w-xl text-lg text-fg-muted leading-relaxed">
             Cài 5 phút, ship hàng được ngay. Self-host CLI — code của bạn, không phụ thuộc Vercel,
             multi-tenant từ ngày đầu.
           </p>
@@ -58,7 +58,7 @@ export function MarketingHeroHighImpact({ locale }: { locale: string }) {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href={`/${locale}/themes`}
-              className="group inline-flex h-12 items-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 px-6 text-[15px] font-semibold text-white shadow-lift transition-all hover:-translate-y-0.5"
+              className="group inline-flex h-12 items-center gap-2 rounded-xl bg-fg hover:bg-bg-elevated px-6 text-[15px] font-semibold text-white shadow-lift transition-all hover:-translate-y-0.5"
             >
               Khám phá theme
               <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
@@ -67,30 +67,30 @@ export function MarketingHeroHighImpact({ locale }: { locale: string }) {
             </Link>
             <Link
               href={`/${locale}/pricing`}
-              className="inline-flex h-12 items-center gap-2 rounded-xl bg-white ring-1 ring-slate-200 hover:ring-slate-300 px-6 text-[15px] font-semibold text-slate-900 shadow-soft transition-all"
+              className="inline-flex h-12 items-center gap-2 rounded-xl bg-white ring-1 ring-border hover:ring-border px-6 text-[15px] font-semibold text-fg shadow-soft transition-all"
             >
               Xem bảng giá
             </Link>
           </div>
 
           {/* Trust strip */}
-          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500">
+          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-3 text-sm text-fg-muted">
             <span className="inline-flex items-center gap-2">
-              <svg className="h-4 w-4 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+              <svg className="h-4 w-4 text-[#22C55E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               One-time purchase
             </span>
-            <span className="hidden sm:inline text-slate-300">·</span>
+            <span className="hidden sm:inline text-fg-muted">·</span>
             <span className="inline-flex items-center gap-2">
-              <svg className="h-4 w-4 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+              <svg className="h-4 w-4 text-[#22C55E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               Self-host CLI
             </span>
-            <span className="hidden sm:inline text-slate-300">·</span>
+            <span className="hidden sm:inline text-fg-muted">·</span>
             <span className="inline-flex items-center gap-2">
-              <svg className="h-4 w-4 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+              <svg className="h-4 w-4 text-[#22C55E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               Mã nguồn của bạn

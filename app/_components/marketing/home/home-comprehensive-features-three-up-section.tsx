@@ -18,17 +18,17 @@ type Card = {
 };
 
 const LEFT_TOP: Card = {
-  title: "Block ghép như Lego",
-  caption: "Kéo thả block, đổi thứ tự, layout không vỡ.",
+  title: "Khối ghép như Lego",
+  caption: "Kéo thả khối, đổi thứ tự, bố cục không vỡ.",
   image: "/hero-tiles/localhost-3002-vi-themes-luxury.png",
 };
 const LEFT_BOTTOM: Card = {
-  title: "25+ trang sẵn sàng",
-  caption: "Home, PDP, cart, checkout, blog — đầy đủ.",
+  title: "Hơn 25 trang sẵn sàng",
+  caption: "Home, PDP, cart, checkout, blog — đủ dùng.",
   image: "/hero-tiles/localhost-3002-vi-pricing.png",
 };
 const CENTER: Card = {
-  title: "Demo store thật",
+  title: "Cửa hàng demo thật",
   caption: "Cài là chạy, không cần sửa code.",
   image: "/hero-tiles/default-demo-localhost-3000-vi.png",
 };
@@ -38,8 +38,8 @@ const RIGHT_TOP: Card = {
   image: "/hero-tiles/localhost-3002-vi-themes-trendy.png",
 };
 const RIGHT_BOTTOM: Card = {
-  title: "Multi-store thật",
-  caption: "Mỗi brand domain riêng, kho riêng — chung 1 dashboard.",
+  title: "Multi-store chuẩn",
+  caption: "Mỗi brand domain riêng, kho riêng — dùng chung một dashboard.",
   image: "/hero-tiles/watch-shop-demo-localhost-3000-vi.png",
 };
 
@@ -108,11 +108,11 @@ export function HomeFeatureGroupASection({ locale: _locale }: { locale: string }
             Đủ thứ cần để
             <br />
             <span style={{ color: "var(--color-accent-600)" }}>
-              vận hành nghiêm túc.
+              vận hành bài bản.
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-fg-muted">
-            Module tách bạch, chỉnh được tới từng block.
+            Module tách bạch, chỉnh tới từng block.
           </p>
         </div>
 

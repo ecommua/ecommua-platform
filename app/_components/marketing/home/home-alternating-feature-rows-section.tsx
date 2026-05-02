@@ -10,25 +10,25 @@ import { Container } from "@/app/_components/ui/container-wrapper";
 const ROWS = [
   {
     eyebrow: "Multi-store",
-    title: "Một tài khoản, mở bao nhiêu store cũng được.",
+    title: "Một tài khoản, mở bao nhiêu cửa hàng cũng được.",
     body:
-      "Mỗi store domain riêng, theme riêng, kho riêng — vẫn dùng chung 1 dashboard. Aimeos site tree thật, không phải mock. Sale Tết của brand A không lẫn vào brand B.",
+      "Mỗi cửa hàng có domain riêng, theme riêng, kho riêng — vẫn dùng chung một dashboard. Site tree Aimeos thật, không phải mock. Khuyến mãi Tết của brand A không lẫn vào brand B.",
     image: "/hero-tiles/localhost-3002-vi-themes.png",
     align: "left" as const,
   },
   {
     eyebrow: "Self-host CLI",
-    title: "Một lệnh terminal là xong cái store mới.",
+    title: "Một lệnh terminal là xong cửa hàng mới.",
     body:
-      "bench new-site, bench deploy, bench backup. CLI mượn ý tưởng từ ERPNext — dev nào cũng đọc hiểu trong 5 phút. Chạy trên VPS của bạn, không Vercel, không hoá đơn cuối tháng giật mình.",
+      "bench new-site, bench deploy, bench backup. CLI lấy cảm hứng từ ERPNext — dev đọc hiểu trong 5 phút. Chạy trên VPS của bạn, không Vercel, không hóa đơn cuối tháng bất ngờ.",
     image: "/hero-tiles/default-demo-localhost-3000-vi.png",
     align: "right" as const,
   },
   {
     eyebrow: "Component baseline",
-    title: "Đổi theme không bao giờ vỡ checkout.",
+    title: "Đổi theme không làm vỡ checkout.",
     body:
-      "24 slot lõi giữ nguyên ở mọi theme: header, PDP gallery, cart drawer, payment form. Bạn đổi giao diện cuối tuần, khách thanh toán xong vẫn thấy y chang.",
+      "24 slot lõi giữ nguyên ở mọi theme: header, PDP gallery, cart drawer, payment form. Bạn đổi giao diện cuối tuần, khách thanh toán xong vẫn thấy y như cũ.",
     image: "/hero-tiles/watch-shop-demo-localhost-3000-vi.png",
     align: "left" as const,
   },

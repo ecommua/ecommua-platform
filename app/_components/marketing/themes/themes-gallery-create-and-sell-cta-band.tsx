@@ -53,24 +53,24 @@ export function ThemesCtaBand({ locale }: { locale: string }) {
 
 function MockCard({ className, tone }: { className?: string; tone: "warm" | "cool" | "neutral" }) {
   const tones = {
-    warm: "from-amber-100 via-orange-50 to-white",
-    cool: "from-sky-100 via-white to-sky-50",
-    neutral: "from-white via-slate-50 to-white",
+    warm: "from-accent-100 via-orange-50 to-white",
+    cool: "from-brand-100 via-white to-brand-50",
+    neutral: "from-white via-bg-muted to-white",
   } as const;
   return (
     <div className={`${className} rounded-lg bg-white shadow-2xl ring-1 ring-black/10 overflow-hidden`}>
-      <div className="h-3 bg-slate-100 flex items-center gap-1 px-2">
-        <span className="h-1 w-1 rounded-full bg-slate-300" />
-        <span className="h-1 w-1 rounded-full bg-slate-300" />
-        <span className="h-1 w-1 rounded-full bg-slate-300" />
+      <div className="h-3 bg-bg-muted flex items-center gap-1 px-2">
+        <span className="h-1 w-1 rounded-full bg-fg-muted" />
+        <span className="h-1 w-1 rounded-full bg-fg-muted" />
+        <span className="h-1 w-1 rounded-full bg-fg-muted" />
       </div>
       <div className={`flex-1 h-[calc(100%-12px)] bg-gradient-to-br ${tones[tone]} p-3 flex flex-col gap-1.5`}>
-        <div className="h-2 w-2/3 rounded-sm bg-slate-300/60" />
-        <div className="h-1.5 w-1/2 rounded-sm bg-slate-200/80" />
+        <div className="h-2 w-2/3 rounded-sm bg-fg-muted/60" />
+        <div className="h-1.5 w-1/2 rounded-sm bg-bg-elevated/80" />
         <div className="mt-auto grid grid-cols-3 gap-1">
-          <div className="h-4 rounded-sm bg-slate-200/70" />
-          <div className="h-4 rounded-sm bg-slate-200/70" />
-          <div className="h-4 rounded-sm bg-slate-200/70" />
+          <div className="h-4 rounded-sm bg-bg-elevated/70" />
+          <div className="h-4 rounded-sm bg-bg-elevated/70" />
+          <div className="h-4 rounded-sm bg-bg-elevated/70" />
         </div>
       </div>
     </div>

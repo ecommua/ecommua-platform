@@ -82,7 +82,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         aria-hidden
         style={{
           background:
-            'radial-gradient(60% 50% at 50% 22%, rgb(197 249 75 / 0.16) 0%, transparent 65%)',
+            'radial-gradient(60% 50% at 50% 22%, var(--prussian-blue) 0%, transparent 65%)',
         }}
       />
 
@@ -91,18 +91,18 @@ export function HomeHeroSection({ locale }: { locale: string }) {
           <div className="relative inline-flex items-center justify-center rounded-full border border-accent/30 bg-gradient-to-r from-accent/10 via-accent/15 to-accent/10 px-8 py-3 text-base md:text-lg font-semibold shadow-lg backdrop-blur-sm">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/5 to-accent/10 blur-xl" />
             <span className="relative bg-gradient-to-r from-accent-strong via-accent to-accent-strong bg-clip-text text-transparent">
-              BETA — làm cho dân Việt
+              Thiết kế cửa hàng của bạn để kinh doanh ngay hôm nay.
             </span>
           </div>
 
           <h1 className="mt-6 font-display text-4xl md:text-7xl font-extrabold leading-tight tracking-tight text-fg">
-            Bán nhiều store.
+            Nhiều cửa hàng.
             <br className="hidden md:block" />
             <span className="text-accent">Một dashboard.</span>
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-base md:text-lg text-fg-muted">
-            Chạy trên VPS của bạn. Mã nguồn mở. Không khoá tay.
+            Chạy trên VPS của bạn. Mã nguồn mở. Không bị khóa nền tảng.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -120,7 +120,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
 
         <div className="relative mt-6 md:mt-8 pb-16 lg:pb-24">
           <div
-            className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.35)] dark:shadow-[0_30px_120px_rgba(0,0,0,0.6),_0_0_100px_rgba(197,249,75,0.14)]"
+            className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.35)] transition-shadow duration-300 dark:shadow-[0_30px_120px_rgba(0,0,0,0.6),_0_0_100px_var(--prussian-blue)]"
             style={{
               transformStyle: 'preserve-3d',
               transform: `perspective(1800px) rotateX(${rotationX}deg) translateY(${translateY}px) scale(${scale})`,
