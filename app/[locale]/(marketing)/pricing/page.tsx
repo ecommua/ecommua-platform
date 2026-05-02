@@ -1,31 +1,28 @@
-// Pricing page stub — Stripe integration deferred to later phase
-export default function PricingPage() {
+/**
+ * Pricing page — pixel-perfect rebuild per ref/pricing/full.png.
+ * Sections (top → bottom):
+ *   01 hero + monthly/yearly toggle
+ *   02 3 tier cards (Free / Standard / Premium)
+ *   03 plan comparison table (3 grouped sections × 5 rows × 3 cols)
+ *   04 "Supercharge Your Success" CTA band + dashboard mockup
+ *   (footer is shared, rendered by marketing layout)
+ */
+
+import { PricingHeroAndTiers } from "@/app/_components/marketing/pricing/pricing-hero-and-tiers";
+import { PricingPlanComparisonTable } from "@/app/_components/marketing/pricing/pricing-plan-comparison-table";
+import { PricingSuperchargeCtaBand } from "@/app/_components/marketing/pricing/pricing-supercharge-cta-band";
+
+interface Props {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function PricingPage({ params }: Props) {
+  await params; // locale reserved for future i18n strings
   return (
-    <section className="py-20 px-4 max-w-4xl mx-auto text-center">
-      <h1 className="text-3xl font-bold text-gray-900 mb-4">Bảng giá</h1>
-      <p className="text-gray-500 mb-12">Chọn gói phù hợp với nhu cầu của bạn.</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="border rounded-xl p-8 shadow-sm">
-          <h2 className="text-xl font-semibold mb-2">Miễn phí</h2>
-          <p className="text-4xl font-extrabold text-gray-900 mb-4">0đ</p>
-          <ul className="text-sm text-gray-600 space-y-2 mb-6">
-            <li>✓ 1 cửa hàng</li>
-            <li>✓ Chủ đề miễn phí</li>
-            <li>✓ Hỗ trợ cộng đồng</li>
-          </ul>
-          <span className="inline-block bg-gray-100 text-gray-500 px-6 py-2 rounded-lg text-sm">Sắp ra mắt</span>
-        </div>
-        <div className="border-2 border-indigo-600 rounded-xl p-8 shadow-md">
-          <h2 className="text-xl font-semibold mb-2 text-indigo-600">Pro</h2>
-          <p className="text-4xl font-extrabold text-gray-900 mb-4">299k<span className="text-base font-normal text-gray-500">/tháng</span></p>
-          <ul className="text-sm text-gray-600 space-y-2 mb-6">
-            <li>✓ Không giới hạn cửa hàng</li>
-            <li>✓ Toàn bộ chủ đề premium</li>
-            <li>✓ Hỗ trợ ưu tiên</li>
-          </ul>
-          <span className="inline-block bg-gray-100 text-gray-500 px-6 py-2 rounded-lg text-sm">Sắp ra mắt</span>
-        </div>
-      </div>
-    </section>
-  )
+    <>
+      <PricingHeroAndTiers />
+      <PricingPlanComparisonTable />
+      <PricingSuperchargeCtaBand />
+    </>
+  );
 }
