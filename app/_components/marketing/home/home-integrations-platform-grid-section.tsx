@@ -139,11 +139,10 @@ export function HomeIntegrationsGridSection() {
           <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
             Cắm thẳng vào
             <br />
-            <span className="text-accent">stack bạn đang dùng.</span>
+            <span className="text-accent">stack bạn đang xài.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-white/70">
-            SePay cho bank Việt, Stripe cho quốc tế, Cloudflare cho CDN. Không lock-in,
-            không middleware bí hiểm — chỉ cần API key.
+            SePay cho bank Việt, Stripe cho quốc tế, Cloudflare cho CDN. Dán API key là xong, không lock-in.
           </p>
         </div>
 

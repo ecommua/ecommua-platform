@@ -1,46 +1,47 @@
 @import "tailwindcss";
 
-/* Ecommua design tokens. Anchors:
-   #8ecae6 sky-blue-light · #219ebc blue-green · #023047 deep-space-blue
-   #ffb703 amber-flame · #fb8500 princeton-orange */
+/* Ecommua design tokens — "Onyx & Ember" palette.
+   #0B0F1A onyx (deepest, dark bg) · #F7F5F0 bone (light cream)
+   #3B5BDB cobalt (saturated brand) · #E8743B ember (warm accent)
+   #5B6478 slate (muted) */
 
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-geist), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* — Brand ramp built from #219ebc anchor (600) — */
-  --color-brand-50:  #ecf7fb;
-  --color-brand-100: #d4ecf4;
-  --color-brand-200: #aedce9;
-  --color-brand-300: #8ecae6;
-  --color-brand-400: #5cb6d4;
-  --color-brand-500: #3aa9c8;
-  --color-brand-600: #219ebc;
-  --color-brand-700: #1b8aa8;
-  --color-brand-800: #145d76;
-  --color-brand-900: #073b55;
-  --color-brand-950: #023047;
+  /* — Brand ramp built from #3B5BDB cobalt anchor (600) — */
+  --color-brand-50:  #eef1fc;
+  --color-brand-100: #dde3f9;
+  --color-brand-200: #b8c4f2;
+  --color-brand-300: #8a9deb;
+  --color-brand-400: #6378e3;
+  --color-brand-500: #4d63de;
+  --color-brand-600: #3b5bdb;
+  --color-brand-700: #2f49b5;
+  --color-brand-800: #243a8f;
+  --color-brand-900: #1a2a66;
+  --color-brand-950: #0f1a3d;
 
-  /* — Accent ramp built from #fb8500 (600) + #ffb703 (400) — */
-  --color-accent-50:  #fff7e6;
-  --color-accent-100: #ffe9b8;
-  --color-accent-200: #ffd270;
-  --color-accent-300: #ffc23a;
-  --color-accent-400: #ffb703;
-  --color-accent-500: #fda003;
-  --color-accent-600: #fb8500;
-  --color-accent-700: #d77000;
-  --color-accent-800: #a05400;
-  --color-accent-900: #6a3700;
-  --color-accent-950: #3d2000;
+  /* — Accent ramp built from #E8743B ember anchor (600) — */
+  --color-accent-50:  #fdf2eb;
+  --color-accent-100: #fbe1d1;
+  --color-accent-200: #f6c19e;
+  --color-accent-300: #f1a071;
+  --color-accent-400: #ec8753;
+  --color-accent-500: #e87d45;
+  --color-accent-600: #e8743b;
+  --color-accent-700: #c45c28;
+  --color-accent-800: #94431a;
+  --color-accent-900: #5f2b0e;
+  --color-accent-950: #361706;
 
-  /* — Raw palette literals — */
-  --color-sky-blue-light:   #8ecae6;
-  --color-blue-green:       #219ebc;
-  --color-deep-space-blue:  #023047;
-  --color-amber-flame:      #ffb703;
-  --color-princeton-orange: #fb8500;
+  /* — Raw palette literals (legacy aliases — same names, new values) — */
+  --color-sky-blue-light:   #8a9deb;
+  --color-blue-green:       #3b5bdb;
+  --color-deep-space-blue:  #0b0f1a;
+  --color-amber-flame:      #f1a071;
+  --color-princeton-orange: #e8743b;
 
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -48,27 +49,27 @@
   --radius-2xl: 20px;
   --radius-3xl: 28px;
 
-  --shadow-soft: 0 1px 2px rgb(2 48 71 / 0.05), 0 1px 3px rgb(2 48 71 / 0.07);
-  --shadow-card: 0 1px 2px rgb(2 48 71 / 0.05), 0 4px 16px -4px rgb(2 48 71 / 0.10);
-  --shadow-lift: 0 4px 8px -2px rgb(2 48 71 / 0.08), 0 16px 32px -8px rgb(2 48 71 / 0.14);
-  --shadow-glow: 0 0 0 1px rgb(33 158 188 / 0.14), 0 8px 28px -8px rgb(33 158 188 / 0.35);
+  --shadow-soft: 0 1px 2px rgb(11 15 26 / 0.05), 0 1px 3px rgb(11 15 26 / 0.07);
+  --shadow-card: 0 1px 2px rgb(11 15 26 / 0.05), 0 4px 16px -4px rgb(11 15 26 / 0.10);
+  --shadow-lift: 0 4px 8px -2px rgb(11 15 26 / 0.08), 0 16px 32px -8px rgb(11 15 26 / 0.14);
+  --shadow-glow: 0 0 0 1px rgb(59 91 219 / 0.14), 0 8px 28px -8px rgb(59 91 219 / 0.35);
 }
 
-/* ── Light (default) ───────────────────────────────────────────────── */
+/* ── Light (default) — bone background, onyx foreground ───────────── */
 :root {
   --bg:             #ffffff;
-  --bg-elevated:    #f4fafd;
-  --bg-muted:       #eaf4f9;
-  --fg:             #023047;
-  --fg-muted:       #3d6478;
-  --border:         #cfe5f0;
-  --brand:          #219ebc;
-  --brand-strong:   #1b8aa8;
+  --bg-elevated:    #f7f5f0;
+  --bg-muted:       #f0eee8;
+  --fg:             #0b0f1a;
+  --fg-muted:       #5b6478;
+  --border:         #e2dfd6;
+  --brand:          #3b5bdb;
+  --brand-strong:   #2f49b5;
   --brand-fg:       #ffffff;
-  --accent:         #fb8500;
-  --accent-strong:  #d77000;
+  --accent:         #e8743b;
+  --accent-strong:  #c45c28;
   --accent-fg:      #ffffff;
-  --ring:           #219ebc;
+  --ring:           #3b5bdb;
 
   --accent-bg:    var(--bg-muted);
   --background:        var(--bg);
@@ -79,21 +80,21 @@
   --card-foreground:   var(--fg);
 }
 
-/* ── Dark ──────────────────────────────────────────────────────────── */
+/* ── Dark — onyx background, bone foreground ──────────────────────── */
 .dark {
-  --bg:             #023047;
-  --bg-elevated:    #0a3d57;
-  --bg-muted:       #0e4865;
-  --fg:             #eaf4f9;
-  --fg-muted:       #8ecae6;
-  --border:         #0e4865;
-  --brand:          #8ecae6;
-  --brand-strong:   #219ebc;
-  --brand-fg:       #023047;
-  --accent:         #ffb703;
-  --accent-strong:  #fb8500;
-  --accent-fg:      #023047;
-  --ring:           #8ecae6;
+  --bg:             #0b0f1a;
+  --bg-elevated:    #141a2b;
+  --bg-muted:       #1a2138;
+  --fg:             #f7f5f0;
+  --fg-muted:       #a4adc4;
+  --border:         #232b44;
+  --brand:          #8a9deb;
+  --brand-strong:   #6378e3;
+  --brand-fg:       #0b0f1a;
+  --accent:         #f1a071;
+  --accent-strong:  #e8743b;
+  --accent-fg:      #0b0f1a;
+  --ring:           #8a9deb;
 
   --accent-bg:    var(--bg-muted);
   --background:        var(--bg);

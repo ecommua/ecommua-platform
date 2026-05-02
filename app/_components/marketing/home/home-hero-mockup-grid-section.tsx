@@ -31,7 +31,7 @@ const COL_D = [TILES[1], TILES[5], TILES[6], TILES[0], TILES[4], TILES[2]];
 
 function Tile({ src }: { src: string }) {
   return (
-    <div className="my-3 h-[340px] w-[400px] shrink-0 overflow-hidden rounded-[16px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8)]">
+    <div className="my-2 h-[600px] w-[400px] shrink-0 overflow-hidden rounded-[16px] bg-[#141a2b] ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.85)]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
     </div>
@@ -71,7 +71,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 22%, rgb(33 158 188 / 0.30) 0%, transparent 65%)",
+            "radial-gradient(60% 50% at 50% 22%, rgb(59 91 219 / 0.32) 0%, transparent 65%)",
         }}
       />
       {/* secondary warm glow lower */}
@@ -80,7 +80,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[600px]"
         style={{
           background:
-            "radial-gradient(50% 60% at 50% 100%, rgb(255 183 3 / 0.10) 0%, transparent 70%)",
+            "radial-gradient(50% 60% at 50% 100%, rgb(232 116 59 / 0.14) 0%, transparent 70%)",
         }}
       />
       {/* subtle grid texture */}
@@ -97,33 +97,32 @@ export function HomeHeroSection({ locale }: { locale: string }) {
       <Container size="xl" className="relative pt-12 pb-4 sm:pt-16 sm:pb-6 z-10">
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur ring-1 ring-white/15 px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-white/70">
-            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--color-amber-flame)" }} />
-            Beta dành riêng cho thị trường Việt
+            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--color-accent-500)" }} />
+            Beta — làm cho dân Việt
           </div>
-          <h1 className="mt-5 font-display text-[36px] sm:text-[48px] lg:text-[56px] font-bold tracking-[-0.025em] leading-[1.05] text-white">
-            Khởi tạo siêu tốc,
+          <h1 className="mt-5 font-display text-[52px] sm:text-[72px] lg:text-[88px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
+            Bán nhiều store.
             <br />
             <span
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, var(--color-amber-flame) 0%, var(--color-princeton-orange) 100%)",
+                  "linear-gradient(90deg, var(--color-accent-400) 0%, var(--color-accent-600) 100%)",
               }}
             >
-              mở khoá giới hạn.
+              Một dashboard.
             </span>
           </h1>
-          <p className="mt-5 mx-auto max-w-lg text-[15px] sm:text-[16px] leading-relaxed text-white/70">
-            Nền tảng E-commerce đa điểm chạm (multi-store), tự do lưu trữ (self-host).
-            Làm chủ mã nguồn, tự do tuỳ chỉnh.
+          <p className="mt-5 mx-auto max-w-md text-[16px] leading-relaxed text-white/70">
+            Chạy trên VPS của bạn. Mã nguồn mở. Không bị khoá tay.
           </p>
           <div className="mt-7 flex justify-center">
             <Link
               href={`/${locale}/themes`}
-              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[14px] font-semibold text-[#1a0e00] shadow-[0_10px_40px_-10px_rgba(255,183,3,0.6)]"
+              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[14px] font-semibold text-white shadow-[0_10px_40px_-10px_rgba(232,116,59,0.55)]"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, var(--color-amber-flame) 0%, var(--color-princeton-orange) 100%)",
+                  "linear-gradient(90deg, var(--color-accent-500) 0%, var(--color-accent-700) 100%)",
               }}
             >
               Trải nghiệm ngay
@@ -135,11 +134,11 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         </div>
       </Container>
 
-      {/* 4 vertical tile columns — taller, bleed past viewport edges */}
-      <div className="relative h-[1100px] sm:h-[1200px] -mt-10 overflow-hidden">
+      {/* 4 vertical tile columns — large, full-width, edges bleed off-viewport */}
+      <div className="relative h-[1500px] sm:h-[1600px] -mt-10 overflow-hidden">
         <div
           aria-hidden
-          className="hero-stage absolute inset-y-0 -left-32 -right-32 flex items-start justify-center gap-5 pt-0"
+          className="hero-stage absolute inset-y-0 -left-6 -right-6 flex items-start justify-between gap-2 pt-0"
         >
           <MarqueeCol tiles={COL_A} direction="up" />
           <MarqueeCol tiles={COL_B} direction="down" />
@@ -170,7 +169,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgba(2,48,71,0.7) 100%)",
+              "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgba(11,15,26,0.7) 100%)",
           }}
         />
       </div>

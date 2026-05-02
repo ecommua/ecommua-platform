@@ -12,10 +12,10 @@ export function HomeStatQuoteBandSection() {
               98%
             </div>
             <p className="mt-4 font-display text-2xl sm:text-3xl font-bold tracking-tight text-white max-w-md">
-              merchant lên store đầu tiên trong vòng 1 tuần.
+              shop đầu tiên lên trong 1 tuần.
             </p>
             <p className="mt-3 text-[15px] text-white/70 max-w-md">
-              Theme đẹp ship sẵn, CLI gọn, multi-tenant từ ngày đầu. Không phải tự code lại từ con số 0.
+              Theme đẹp dùng được luôn, CLI gọn, multi-store từ ngày đầu. Khỏi code lại từ số 0.
             </p>
           </div>
 

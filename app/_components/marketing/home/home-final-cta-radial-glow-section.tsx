@@ -17,7 +17,7 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
             className="pointer-events-none absolute inset-x-0 bottom-[-40%] h-[120%]"
             style={{
               background:
-                "radial-gradient(50% 50% at 50% 80%, rgb(251 133 0 / 0.55) 0%, rgb(255 183 3 / 0.25) 35%, transparent 70%)",
+                "radial-gradient(50% 50% at 50% 80%, rgb(232 116 59 / 0.55) 0%, rgb(241 160 113 / 0.22) 35%, transparent 70%)",
             }}
           />
           {/* subtle top sheen */}
@@ -28,20 +28,19 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
 
           <div className="relative text-center">
             <h2 className="mx-auto max-w-3xl font-display text-5xl sm:text-6xl lg:text-[80px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
-              Sẵn sàng tạo dựng thành công
+              Lên store đầu tiên
               <br />
-              <span className="text-accent">mới cùng Ecommua.</span>
+              <span className="text-accent">trong tuần này.</span>
             </h2>
             <p className="mx-auto mt-7 max-w-md text-[15px] leading-relaxed text-white/70">
-              Khởi chạy dễ dàng, làm chủ toàn bộ dữ liệu. Giao diện tối ưu sẵn sàng ngay tuần này.
-              Không ẩn phí, không lệ thuộc nền tảng.
+              Tải về, chạy lệnh, cắm domain. Dữ liệu của bạn, server của bạn. Không phí ẩn, không bị khoá.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href={`/${locale}/themes`}
                 className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-semibold text-white ring-1 ring-white/20 hover:bg-white/15 transition-colors"
               >
-                Khám phá giao diện
+                Xem theme
               </Link>
               <Link
                 href={`/${locale}/pricing`}
