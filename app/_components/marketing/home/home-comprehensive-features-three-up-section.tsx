@@ -18,22 +18,22 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
             Tính năng
           </div>
           <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.03em] leading-[1.02] text-fg">
-            Đủ thứ cần để
+            Giải pháp chuyên sâu cho
             <br />
-            <span className="text-accent">vận hành nghiêm túc.</span>
+            <span className="text-accent">hoạt động thương mại thực thụ.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-fg-muted">
-            Không phải template demo. Từng block đều đã chạy production ở store thật, sửa được,
-            ráp được, không lo vỡ checkout.
+            Kiến trúc cấu hình linh hoạt. Từng khối chức năng đều được kiểm định khắt khe
+            ở quy mô Production với hiệu suất cao nhất.
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
           {/* 30+ Section — grid of theme thumbnails */}
           <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">30+ Section</h3>
+            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">Cấu trúc Module</h3>
             <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-              Hero, PDP, gallery, pricing, checkout. Block-based — kéo thả, hoán đổi, không vỡ layout.
+              Xây dựng trải nghiệm trọn vẹn thông qua hệ thống Block đa năng. Mọi thứ được đồng bộ mà không phá vỡ Layout.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-2.5">
               {[
@@ -52,33 +52,43 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
             </div>
           </div>
 
-          {/* Style Guide — stacked color tokens */}
+          {/* Style Guide — token swatches + component preview */}
           <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7 flex flex-col">
-            <div className="flex-1 flex items-center justify-center py-10">
-              <div className="relative">
-                <div className="absolute -left-10 -top-2 h-36 w-28 rounded-2xl bg-fg/10 ring-1 ring-border rotate-[-10deg] shadow-lg" />
-                <div className="absolute -left-3 top-2 h-36 w-28 rounded-2xl bg-fg/15 ring-1 ring-border rotate-[-4deg] shadow-lg" />
-                <div className="relative h-36 w-28 rounded-2xl bg-accent text-accent-fg ring-1 ring-border flex items-end justify-center pb-3 font-mono text-xs shadow-xl">
-                  #FB8500
-                </div>
-              </div>
+            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">Style guide & component</h3>
+            <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+              Hệ thống Token chia các layer mạch lạc giúp thay đổi nhận diện mà không ảnh hưởng toàn hệ thống.
+            </p>
+            <div className="mt-6 aspect-[4/3] rounded-xl bg-bg-muted ring-1 ring-border overflow-hidden relative">
+              <Image
+                src="/hero-tiles/localhost-3002-vi-themes-luxury.png"
+                alt=""
+                fill
+                sizes="380px"
+                className="object-cover object-top"
+              />
             </div>
-            <div>
-              <h3 className="font-display text-2xl font-bold tracking-tight text-fg">
-                Style guide
-                <br />& component
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-                24 slot lõi dùng chung mọi theme. Đổi giao diện không phải sửa logic.
-              </p>
+            <div className="mt-3 flex items-center gap-1.5">
+              {[
+                "var(--color-deep-space-blue)",
+                "var(--color-blue-green)",
+                "var(--color-sky-blue-light)",
+                "var(--color-amber-flame)",
+                "var(--color-princeton-orange)",
+              ].map((c, i) => (
+                <span
+                  key={i}
+                  className="h-6 flex-1 rounded-md ring-1 ring-border"
+                  style={{ backgroundColor: c }}
+                />
+              ))}
             </div>
           </div>
 
           {/* 25+ Trang — tall single preview */}
           <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">25+ Trang</h3>
+            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">Trải nghiệm toàn diện</h3>
             <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-              Home, listing, PDP, cart, checkout, account, blog, 404. Đầy đủ trang để đi-vào-vận-hành luôn.
+              Chuẩn hóa quy trình thương mại điện tử với hệ thống trang chuẩn SEO tối ưu chuyên sâu.
             </p>
             <div className="mt-6 aspect-[4/3] rounded-xl bg-bg-muted ring-1 ring-border overflow-hidden relative">
               <Image
@@ -96,17 +106,17 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
         <div className="mt-5 rounded-3xl bg-bg-elevated ring-1 ring-border p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div>
             <h3 className="font-display text-2xl font-bold tracking-tight text-fg">
-              Còn nhiều theme đẹp khác đang chờ
+              Khám phá Thư viện Giao diện
             </h3>
             <p className="mt-1 text-sm text-fg-muted">
-              Mỗi theme đều ship full trang, full block. Đập hộp là chạy.
+              Mỗi bộ giao diện được tích hợp tối ưu chuẩn UI/UX quốc tế. Sẵn sàng sử dụng tức thì.
             </p>
           </div>
           <Link
             href={`/${locale}/themes`}
             className="self-start sm:self-auto inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-fg"
           >
-            Xem theme
+            Đến danh mục Giao diện
           </Link>
         </div>
       </Container>

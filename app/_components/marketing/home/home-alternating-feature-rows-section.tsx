@@ -21,7 +21,7 @@ const ROWS = [
     title: "Một lệnh terminal là xong cái store mới.",
     body:
       "bench new-site, bench deploy, bench backup. CLI mượn ý tưởng từ ERPNext — dev nào cũng đọc hiểu trong 5 phút. Chạy trên VPS của bạn, không Vercel, không hoá đơn cuối tháng giật mình.",
-    image: "/hero-tiles/localhost-3002-vi-pricing.png",
+    image: "/hero-tiles/default-demo-localhost-3000-vi.png",
     align: "right" as const,
   },
   {

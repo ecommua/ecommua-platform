@@ -28,26 +28,26 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
 
           <div className="relative text-center">
             <h2 className="mx-auto max-w-3xl font-display text-5xl sm:text-6xl lg:text-[80px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
-              Đến lúc dựng store của bạn
+              Sẵn sàng tạo dựng thành công
               <br />
-              <span className="text-accent">trên Ecommua rồi đấy.</span>
+              <span className="text-accent">mới cùng Ecommua.</span>
             </h2>
             <p className="mx-auto mt-7 max-w-md text-[15px] leading-relaxed text-white/70">
-              Tải về, deploy lên VPS, đập theme — cuối tuần này store đầu tiên đã sống.
-              Không phí ẩn, không vendor lock-in.
+              Khởi chạy dễ dàng, làm chủ toàn bộ dữ liệu. Giao diện tối ưu sẵn sàng ngay tuần này.
+              Không ẩn phí, không lệ thuộc nền tảng.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href={`/${locale}/themes`}
                 className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-semibold text-white ring-1 ring-white/20 hover:bg-white/15 transition-colors"
               >
-                Xem demo
+                Khám phá giao diện
               </Link>
               <Link
                 href={`/${locale}/pricing`}
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-fg shadow-lift"
               >
-                Bắt đầu ngay
+                Trải nghiệm ngay
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>

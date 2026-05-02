@@ -31,7 +31,7 @@ const ROW_D = [TILES[1], TILES[5], TILES[6], TILES[0], TILES[4], TILES[2]];
 
 function Tile({ src }: { src: string }) {
   return (
-    <div className="mx-3 h-[260px] w-[400px] shrink-0 overflow-hidden rounded-[16px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
+    <div className="mx-2 h-[230px] w-[360px] shrink-0 overflow-hidden rounded-[14px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
     </div>
@@ -98,10 +98,10 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur ring-1 ring-white/15 px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-white/70">
             <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--color-amber-flame)" }} />
-            v0.1 — open beta cho merchant Việt
+            Beta dành riêng cho thị trường Việt
           </div>
-          <h1 className="mt-7 font-display text-[56px] sm:text-[88px] lg:text-[112px] font-bold tracking-[-0.035em] leading-[0.95] text-white">
-            Mở store nhanh hơn,
+          <h1 className="mt-7 font-display text-[44px] sm:text-[64px] lg:text-[80px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
+            Khởi tạo siêu tốc,
             <br />
             <span
               className="bg-clip-text text-transparent"
@@ -110,36 +110,30 @@ export function HomeHeroSection({ locale }: { locale: string }) {
                   "linear-gradient(90deg, var(--color-amber-flame) 0%, var(--color-princeton-orange) 100%)",
               }}
             >
-              không bị khoá tay.
+              mở khoá giới hạn.
             </span>
           </h1>
           <p className="mt-7 mx-auto max-w-xl text-[17px] sm:text-[18px] leading-relaxed text-white/70">
-            Nền tảng thương mại tự host, multi-store thật, theme đẹp ship sẵn. Từ landing đến
-            checkout chỉ vài giờ — không phải vài tháng. Code của bạn, server của bạn.
+            Nền tảng E-commerce đa điểm chạm (multi-store), tự do lưu trữ (self-host).
+            Vận hành chỉ trong vài giờ thay vì vài tháng. Làm chủ mã nguồn, tự do tuỳ chỉnh.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-10 flex justify-center">
             <Link
               href={`/${locale}/themes`}
-              className="group inline-flex items-center gap-2 rounded-full px-7 py-4 text-[14px] font-semibold text-[#1a0e00] shadow-[0_10px_40px_-10px_rgba(255,183,3,0.6)] transition-transform hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-[14px] font-semibold text-[#1a0e00] shadow-[0_10px_40px_-10px_rgba(255,183,3,0.6)]"
               style={{
                 backgroundImage:
                   "linear-gradient(90deg, var(--color-amber-flame) 0%, var(--color-princeton-orange) 100%)",
               }}
             >
-              Bắt đầu miễn phí
-              <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
+              Trải nghiệm ngay
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </Link>
-            <Link
-              href={`/${locale}/pricing`}
-              className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur px-6 py-4 text-[14px] font-semibold text-white ring-1 ring-white/15 hover:bg-white/[0.10]"
-            >
-              Xem bảng giá
-            </Link>
           </div>
           <p className="mt-6 text-[12px] text-white/50">
-            Mã nguồn mở · Không khoá vendor · Trả 1 lần, dùng mãi
+            Dữ liệu độc lập · Cấu trúc tuỳ biến · Triển khai chuẩn quốc tế
           </p>
         </div>
       </Container>
@@ -148,9 +142,9 @@ export function HomeHeroSection({ locale }: { locale: string }) {
       <div className="relative h-[820px] sm:h-[920px] overflow-hidden">
         <div
           aria-hidden
-          className="hero-stage absolute inset-0 flex flex-col justify-center gap-6"
+          className="hero-stage absolute inset-0 flex flex-col items-center justify-center gap-3"
           style={{
-            transform: "rotate(-14deg) scale(1.15) translateY(2%)",
+            transform: "rotate(-14deg) scale(1.5)",
             transformOrigin: "center",
           }}
         >
