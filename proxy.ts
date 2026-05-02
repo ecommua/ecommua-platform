@@ -7,6 +7,6 @@ export default createMiddleware(routing)
 export const config = {
   matcher: [
     // Match all paths except Payload admin, API, and static files
-    '/((?!admin|api|_next/static|_next/image|favicon.ico|public).*)',
+    '/((?!admin|api|_next/static|_next/image|favicon.ico|public|hero-tiles|icons|brand|fonts|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|woff|woff2|ttf|eot|map)).*)',
   ],
 }
