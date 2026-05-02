@@ -315,7 +315,7 @@ export function MarketingDockNav({ locale }: { locale: string }) {
 
   const dockStyle: React.CSSProperties = mode === 'dark'
     ? { backgroundColor: 'rgba(255,255,255,0.15)', boxShadow: '0 25px 50px -12px rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }
-    : { backgroundColor: '#219EBC', boxShadow: '0 25px 50px -12px rgba(2,48,71,0.4)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' };
+    : { backgroundColor: 'rgba(142,202,230,0.55)', boxShadow: '0 25px 50px -12px rgba(2,48,71,0.25)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' };
 
   return (
     <nav
