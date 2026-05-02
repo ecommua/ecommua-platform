@@ -140,10 +140,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         <div
           aria-hidden
           className="hero-stage absolute inset-0 flex items-start justify-center gap-4 pt-0"
-          style={{
-            transform: "rotate(-8deg) scale(1.1)",
-            transformOrigin: "center top",
-          }}
+          style={{ transform: "scale(1.05)", transformOrigin: "center top" }}
         >
           <MarqueeCol tiles={COL_A} direction="up" />
           <MarqueeCol tiles={COL_B} direction="down" />
