@@ -31,7 +31,7 @@ const COL_D = [TILES[1], TILES[5], TILES[6], TILES[0], TILES[4], TILES[2]];
 
 function Tile({ src }: { src: string }) {
   return (
-    <div className="my-2 h-[200px] w-[300px] shrink-0 overflow-hidden rounded-[12px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
+    <div className="my-3 h-[340px] w-[400px] shrink-0 overflow-hidden rounded-[16px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8)]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
     </div>
@@ -135,12 +135,11 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         </div>
       </Container>
 
-      {/* 4 vertical tile columns scrolling, slight tilt per column */}
-      <div className="relative h-[640px] sm:h-[720px] -mt-10 overflow-hidden">
+      {/* 4 vertical tile columns — taller, bleed past viewport edges */}
+      <div className="relative h-[1100px] sm:h-[1200px] -mt-10 overflow-hidden">
         <div
           aria-hidden
-          className="hero-stage absolute inset-0 flex items-start justify-center gap-4 pt-0"
-          style={{ transform: "scale(1.05)", transformOrigin: "center top" }}
+          className="hero-stage absolute inset-y-0 -left-32 -right-32 flex items-start justify-center gap-5 pt-0"
         >
           <MarqueeCol tiles={COL_A} direction="up" />
           <MarqueeCol tiles={COL_B} direction="down" />
