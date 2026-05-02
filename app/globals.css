@@ -179,20 +179,20 @@ body {
 }
 .animate-fade-up { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-/* ── Hero scrolling tile rows ─────────────────────────────────────── */
-@keyframes hero-marquee-left {
+/* ── Hero scrolling tile columns (vertical) ──────────────────────── */
+@keyframes hero-marquee-up {
   from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, -50%, 0); }
 }
-@keyframes hero-marquee-right {
-  from { transform: translate3d(-50%, 0, 0); }
+@keyframes hero-marquee-down {
+  from { transform: translate3d(0, -50%, 0); }
   to   { transform: translate3d(0, 0, 0); }
 }
-.hero-row { display: flex; width: max-content; will-change: transform; }
-.hero-row-left  { animation: hero-marquee-left  60s linear infinite; }
-.hero-row-right { animation: hero-marquee-right 75s linear infinite; }
-.hero-row-slow  { animation-duration: 90s; }
-.hero-stage:hover .hero-row { animation-play-state: paused; }
+.hero-col { display: flex; flex-direction: column; height: max-content; will-change: transform; }
+.hero-col-up   { animation: hero-marquee-up   55s linear infinite; }
+.hero-col-down { animation: hero-marquee-down 70s linear infinite; }
+.hero-col-slow { animation-duration: 90s; }
+.hero-stage:hover .hero-col { animation-play-state: paused; }
 
 ::selection {
   background: var(--color-brand-200);

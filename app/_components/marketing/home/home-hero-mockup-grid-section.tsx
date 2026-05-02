@@ -24,33 +24,33 @@ const TILES = [
   "/hero-tiles/used-phones-demo-localhost-3000-vi.png",
 ];
 
-const ROW_A = [TILES[0], TILES[6], TILES[1], TILES[7], TILES[2], TILES[8]];
-const ROW_B = [TILES[5], TILES[3], TILES[9], TILES[4], TILES[0], TILES[6]];
-const ROW_C = [TILES[8], TILES[2], TILES[7], TILES[1], TILES[9], TILES[3]];
-const ROW_D = [TILES[1], TILES[5], TILES[6], TILES[0], TILES[4], TILES[2]];
+const COL_A = [TILES[0], TILES[6], TILES[1], TILES[7], TILES[2], TILES[8]];
+const COL_B = [TILES[5], TILES[3], TILES[9], TILES[4], TILES[0], TILES[6]];
+const COL_C = [TILES[8], TILES[2], TILES[7], TILES[1], TILES[9], TILES[3]];
+const COL_D = [TILES[1], TILES[5], TILES[6], TILES[0], TILES[4], TILES[2]];
 
 function Tile({ src }: { src: string }) {
   return (
-    <div className="mx-2 h-[180px] w-[280px] shrink-0 overflow-hidden rounded-[12px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
+    <div className="my-2 h-[200px] w-[300px] shrink-0 overflow-hidden rounded-[12px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
     </div>
   );
 }
 
-function MarqueeRow({
+function MarqueeCol({
   tiles,
   direction,
   slow,
 }: {
   tiles: string[];
-  direction: "left" | "right";
+  direction: "up" | "down";
   slow?: boolean;
 }) {
   const doubled = [...tiles, ...tiles];
   return (
     <div
-      className={`hero-row ${direction === "left" ? "hero-row-left" : "hero-row-right"} ${slow ? "hero-row-slow" : ""}`}
+      className={`hero-col ${direction === "up" ? "hero-col-up" : "hero-col-down"} ${slow ? "hero-col-slow" : ""}`}
     >
       {doubled.map((src, i) => (
         <Tile key={i} src={src} />
@@ -135,20 +135,20 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         </div>
       </Container>
 
-      {/* Tilted mockup wall — visible within the same fold as title */}
+      {/* 4 vertical tile columns scrolling, slight tilt per column */}
       <div className="relative h-[640px] sm:h-[720px] -mt-10 overflow-hidden">
         <div
           aria-hidden
-          className="hero-stage absolute inset-0 flex flex-col items-center justify-center gap-2"
+          className="hero-stage absolute inset-0 flex items-start justify-center gap-4 pt-0"
           style={{
-            transform: "rotate(-14deg) scale(1.05)",
-            transformOrigin: "center",
+            transform: "rotate(-8deg) scale(1.1)",
+            transformOrigin: "center top",
           }}
         >
-          <MarqueeRow tiles={ROW_A} direction="left" />
-          <MarqueeRow tiles={ROW_B} direction="right" />
-          <MarqueeRow tiles={ROW_C} direction="left" slow />
-          <MarqueeRow tiles={ROW_D} direction="right" />
+          <MarqueeCol tiles={COL_A} direction="up" />
+          <MarqueeCol tiles={COL_B} direction="down" />
+          <MarqueeCol tiles={COL_C} direction="up" slow />
+          <MarqueeCol tiles={COL_D} direction="down" />
         </div>
         {/* top fade into hero copy */}
         <div
