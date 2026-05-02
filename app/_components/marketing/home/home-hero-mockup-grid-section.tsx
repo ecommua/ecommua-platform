@@ -27,10 +27,11 @@ const TILES = [
 const ROW_A = [TILES[0], TILES[6], TILES[1], TILES[7], TILES[2], TILES[8]];
 const ROW_B = [TILES[5], TILES[3], TILES[9], TILES[4], TILES[0], TILES[6]];
 const ROW_C = [TILES[8], TILES[2], TILES[7], TILES[1], TILES[9], TILES[3]];
+const ROW_D = [TILES[1], TILES[5], TILES[6], TILES[0], TILES[4], TILES[2]];
 
 function Tile({ src }: { src: string }) {
   return (
-    <div className="mx-3 h-[180px] w-[280px] shrink-0 overflow-hidden rounded-[14px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]">
+    <div className="mx-3 h-[260px] w-[400px] shrink-0 overflow-hidden rounded-[16px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
     </div>
@@ -93,7 +94,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         }}
       />
 
-      <Container size="xl" className="relative pt-24 pb-10 sm:pt-28 sm:pb-12">
+      <Container size="xl" className="relative pt-20 pb-6 sm:pt-24 sm:pb-8">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur ring-1 ring-white/15 px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-white/70">
             <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--color-amber-flame)" }} />
@@ -143,19 +144,20 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         </div>
       </Container>
 
-      {/* Tilted mockup wall — fills bottom half */}
-      <div className="relative h-[560px] sm:h-[640px] overflow-hidden">
+      {/* Tilted mockup wall — fills bottom ~55% of hero */}
+      <div className="relative h-[820px] sm:h-[920px] overflow-hidden">
         <div
           aria-hidden
-          className="hero-stage absolute inset-0 flex flex-col justify-center gap-5"
+          className="hero-stage absolute inset-0 flex flex-col justify-center gap-6"
           style={{
-            transform: "rotate(-12deg) scale(1.4) translateY(6%)",
+            transform: "rotate(-14deg) scale(1.15) translateY(2%)",
             transformOrigin: "center",
           }}
         >
           <MarqueeRow tiles={ROW_A} direction="left" />
           <MarqueeRow tiles={ROW_B} direction="right" />
           <MarqueeRow tiles={ROW_C} direction="left" slow />
+          <MarqueeRow tiles={ROW_D} direction="right" />
         </div>
         {/* top fade into hero copy */}
         <div
