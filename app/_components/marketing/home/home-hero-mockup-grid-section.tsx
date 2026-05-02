@@ -31,7 +31,7 @@ const ROW_D = [TILES[1], TILES[5], TILES[6], TILES[0], TILES[4], TILES[2]];
 
 function Tile({ src }: { src: string }) {
   return (
-    <div className="mx-2 h-[230px] w-[360px] shrink-0 overflow-hidden rounded-[14px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
+    <div className="mx-2 h-[180px] w-[280px] shrink-0 overflow-hidden rounded-[12px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
     </div>
@@ -94,13 +94,13 @@ export function HomeHeroSection({ locale }: { locale: string }) {
         }}
       />
 
-      <Container size="xl" className="relative pt-20 pb-6 sm:pt-24 sm:pb-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur ring-1 ring-white/15 px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-white/70">
+      <Container size="xl" className="relative pt-12 pb-4 sm:pt-16 sm:pb-6 z-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur ring-1 ring-white/15 px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-white/70">
             <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--color-amber-flame)" }} />
             Beta dành riêng cho thị trường Việt
           </div>
-          <h1 className="mt-7 font-display text-[44px] sm:text-[64px] lg:text-[80px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
+          <h1 className="mt-5 font-display text-[36px] sm:text-[48px] lg:text-[56px] font-bold tracking-[-0.025em] leading-[1.05] text-white">
             Khởi tạo siêu tốc,
             <br />
             <span
@@ -113,14 +113,14 @@ export function HomeHeroSection({ locale }: { locale: string }) {
               mở khoá giới hạn.
             </span>
           </h1>
-          <p className="mt-7 mx-auto max-w-xl text-[17px] sm:text-[18px] leading-relaxed text-white/70">
+          <p className="mt-5 mx-auto max-w-lg text-[15px] sm:text-[16px] leading-relaxed text-white/70">
             Nền tảng E-commerce đa điểm chạm (multi-store), tự do lưu trữ (self-host).
-            Vận hành chỉ trong vài giờ thay vì vài tháng. Làm chủ mã nguồn, tự do tuỳ chỉnh.
+            Làm chủ mã nguồn, tự do tuỳ chỉnh.
           </p>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-7 flex justify-center">
             <Link
               href={`/${locale}/themes`}
-              className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-[14px] font-semibold text-[#1a0e00] shadow-[0_10px_40px_-10px_rgba(255,183,3,0.6)]"
+              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[14px] font-semibold text-[#1a0e00] shadow-[0_10px_40px_-10px_rgba(255,183,3,0.6)]"
               style={{
                 backgroundImage:
                   "linear-gradient(90deg, var(--color-amber-flame) 0%, var(--color-princeton-orange) 100%)",
@@ -132,19 +132,16 @@ export function HomeHeroSection({ locale }: { locale: string }) {
               </svg>
             </Link>
           </div>
-          <p className="mt-6 text-[12px] text-white/50">
-            Dữ liệu độc lập · Cấu trúc tuỳ biến · Triển khai chuẩn quốc tế
-          </p>
         </div>
       </Container>
 
-      {/* Tilted mockup wall — fills bottom ~55% of hero */}
-      <div className="relative h-[820px] sm:h-[920px] overflow-hidden">
+      {/* Tilted mockup wall — visible within the same fold as title */}
+      <div className="relative h-[640px] sm:h-[720px] -mt-10 overflow-hidden">
         <div
           aria-hidden
-          className="hero-stage absolute inset-0 flex flex-col items-center justify-center gap-3"
+          className="hero-stage absolute inset-0 flex flex-col items-center justify-center gap-2"
           style={{
-            transform: "rotate(-14deg) scale(1.5)",
+            transform: "rotate(-14deg) scale(1.05)",
             transformOrigin: "center",
           }}
         >
