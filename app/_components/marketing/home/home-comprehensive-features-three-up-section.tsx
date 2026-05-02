@@ -11,18 +11,18 @@ import { Container } from "@/app/_components/ui/container-wrapper";
 
 export function HomeFeatureGroupASection({ locale }: { locale: string }) {
   return (
-    <section className="bg-bg-elevated dark:bg-deep-space-blue/40 py-24 sm:py-28">
+    <section className="bg-deep-space-blue py-24 sm:py-28 text-white">
       <Container size="xl">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-bg-elevated ring-1 ring-border px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-brand">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] ring-1 ring-white/15 px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-brand">
             Tính năng
           </div>
-          <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.03em] leading-[1.02] text-fg">
+          <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.03em] leading-[1.02] text-white">
             Giải pháp chuyên sâu cho
             <br />
             <span className="text-accent">hoạt động thương mại thực thụ.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-fg-muted">
+          <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-white/70">
             Kiến trúc cấu hình linh hoạt. Từng khối chức năng đều được kiểm định khắt khe
             ở quy mô Production với hiệu suất cao nhất.
           </p>
@@ -30,9 +30,9 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
           {/* 30+ Section — grid of theme thumbnails */}
-          <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">Cấu trúc Module</h3>
-            <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+          <div className="rounded-3xl bg-[#0a3d57] ring-1 ring-white/8 shadow-soft p-7">
+            <h3 className="font-display text-2xl font-bold tracking-tight text-white">Cấu trúc Module</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/70">
               Xây dựng trải nghiệm trọn vẹn thông qua hệ thống Block đa năng. Mọi thứ được đồng bộ mà không phá vỡ Layout.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-2.5">
@@ -44,7 +44,7 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
               ].map((src) => (
                 <div
                   key={src}
-                  className="aspect-[4/3] rounded-xl bg-bg-muted ring-1 ring-border overflow-hidden relative"
+                  className="aspect-[4/3] rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative"
                 >
                   <Image src={src} alt="" fill sizes="180px" className="object-cover object-top" />
                 </div>
@@ -53,12 +53,12 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
           </div>
 
           {/* Style Guide — token swatches + component preview */}
-          <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7 flex flex-col">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">Style guide & component</h3>
-            <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+          <div className="rounded-3xl bg-[#0a3d57] ring-1 ring-white/8 shadow-soft p-7 flex flex-col">
+            <h3 className="font-display text-2xl font-bold tracking-tight text-white">Style guide & component</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/70">
               Hệ thống Token chia các layer mạch lạc giúp thay đổi nhận diện mà không ảnh hưởng toàn hệ thống.
             </p>
-            <div className="mt-6 aspect-[4/3] rounded-xl bg-bg-muted ring-1 ring-border overflow-hidden relative">
+            <div className="mt-6 aspect-[4/3] rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
               <Image
                 src="/hero-tiles/localhost-3002-vi-themes-luxury.png"
                 alt=""
@@ -85,12 +85,12 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
           </div>
 
           {/* 25+ Trang — tall single preview */}
-          <div className="rounded-3xl bg-white dark:bg-deep-space-blue ring-1 ring-border dark:ring-white/8 shadow-soft p-7">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">Trải nghiệm toàn diện</h3>
-            <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+          <div className="rounded-3xl bg-[#0a3d57] ring-1 ring-white/8 shadow-soft p-7">
+            <h3 className="font-display text-2xl font-bold tracking-tight text-white">Trải nghiệm toàn diện</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/70">
               Chuẩn hóa quy trình thương mại điện tử với hệ thống trang chuẩn SEO tối ưu chuyên sâu.
             </p>
-            <div className="mt-6 aspect-[4/3] rounded-xl bg-bg-muted ring-1 ring-border overflow-hidden relative">
+            <div className="mt-6 aspect-[4/3] rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
               <Image
                 src="/hero-tiles/localhost-3002-vi-pricing.png"
                 alt=""
@@ -103,12 +103,12 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
         </div>
 
         {/* Bottom CTA card */}
-        <div className="mt-5 rounded-3xl bg-bg-elevated ring-1 ring-border p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <div className="mt-5 rounded-3xl bg-white/[0.06] ring-1 ring-white/15 p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div>
-            <h3 className="font-display text-2xl font-bold tracking-tight text-fg">
+            <h3 className="font-display text-2xl font-bold tracking-tight text-white">
               Khám phá Thư viện Giao diện
             </h3>
-            <p className="mt-1 text-sm text-fg-muted">
+            <p className="mt-1 text-sm text-white/70">
               Mỗi bộ giao diện được tích hợp tối ưu chuẩn UI/UX quốc tế. Sẵn sàng sử dụng tức thì.
             </p>
           </div>
