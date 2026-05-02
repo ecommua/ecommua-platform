@@ -42,7 +42,7 @@ export function HomeFeatureGroupBSection() {
           {ROWS.map((r, i) => (
             <div
               key={i}
-              className="rounded-[32px] bg-bg-elevated ring-1 ring-border overflow-hidden"
+              className="rounded-[32px] bg-bg-elevated dark:bg-deep-space-blue/60 ring-1 ring-border overflow-hidden shadow-soft"
             >
               <div
                 className={`grid grid-cols-1 lg:grid-cols-2 items-center ${
@@ -54,10 +54,10 @@ export function HomeFeatureGroupBSection() {
                   <div className="inline-flex items-center gap-2 rounded-full bg-bg ring-1 ring-border px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-brand">
                     {r.eyebrow}
                   </div>
-                  <h3 className="mt-5 font-display text-3xl sm:text-4xl lg:text-[40px] font-bold tracking-[-0.025em] leading-[1.06] text-fg">
+                  <h3 className="mt-5 font-display text-[28px] sm:text-3xl lg:text-[32px] font-bold tracking-[-0.025em] leading-[1.06] text-fg max-w-[360px]">
                     {r.title}
                   </h3>
-                  <p className="mt-5 text-[15px] leading-relaxed text-fg-muted max-w-md">
+                  <p className="mt-5 text-[16px] leading-relaxed text-fg-muted max-w-[360px]">
                     {r.body}
                   </p>
                 </div>
