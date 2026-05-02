@@ -2,107 +2,37 @@ import Link from "next/link";
 import { Container } from "@/app/_components/ui/container-wrapper";
 
 /**
- * Hero — Comoret-faithful layout:
- *   - centered display headline + sub + amber CTA
- *   - background = TILTED (-14deg) plane with 3 horizontal rows of UI mockup tiles
- *     scrolling at different speeds (CSS marquee, GPU transform-only)
- *   - middle row goes opposite direction → parallax feel
- *   - pause on hover, respect prefers-reduced-motion (handled in globals.css)
+ * Hero — Comoret-style dark stage:
+ *   - Always-dark hero band (deep navy) with subtle blue-green radial glow
+ *   - Big centered display headline + sub + amber→orange gradient CTA
+ *   - Bottom half: tilted (-12deg) WALL of real product screenshots,
+ *     3 marquee rows scrolling at different speeds
  *
- * No JS animation lib. Tiles are token-built fake page mockups.
+ * No JS animation lib. Uses .hero-row / .hero-stage classes from globals.css.
  */
 
-// Each tile is a tiny page-mockup card. Variants give the wall texture variety.
-type TileKind = "dashboard" | "blog" | "pricing" | "pdp" | "checkout" | "stat";
+const TILES = [
+  "/hero-tiles/localhost-3002-vi-themes.png",
+  "/hero-tiles/localhost-3002-vi-pricing.png",
+  "/hero-tiles/localhost-3002-vi-themes-luxury.png",
+  "/hero-tiles/localhost-3002-vi-themes-trendy.png",
+  "/hero-tiles/localhost-3002-vi-themes-casual.png",
+  "/hero-tiles/localhost-3002-vi-blog.png",
+  "/hero-tiles/default-demo-localhost-3000-vi.png",
+  "/hero-tiles/watch-shop-demo-localhost-3000-vi.png",
+  "/hero-tiles/fashion-demo-localhost-3000-vi.png",
+  "/hero-tiles/used-phones-demo-localhost-3000-vi.png",
+];
 
-const ROW_A: TileKind[] = ["dashboard", "blog", "pricing", "pdp", "checkout", "stat", "blog", "dashboard"];
-const ROW_B: TileKind[] = ["pdp", "stat", "checkout", "blog", "dashboard", "pricing", "stat", "pdp"];
-const ROW_C: TileKind[] = ["blog", "pricing", "dashboard", "stat", "pdp", "checkout", "dashboard", "blog"];
+const ROW_A = [TILES[0], TILES[6], TILES[1], TILES[7], TILES[2], TILES[8]];
+const ROW_B = [TILES[5], TILES[3], TILES[9], TILES[4], TILES[0], TILES[6]];
+const ROW_C = [TILES[8], TILES[2], TILES[7], TILES[1], TILES[9], TILES[3]];
 
-function Tile({ kind }: { kind: TileKind }) {
+function Tile({ src }: { src: string }) {
   return (
-    <div className="mx-3 h-[280px] w-[210px] shrink-0 rounded-2xl bg-bg-elevated ring-1 ring-border overflow-hidden p-3 flex flex-col gap-2 shadow-lift">
-      {kind === "dashboard" && (
-        <>
-          <div className="flex items-center gap-1.5">
-            <div className="h-2 w-2 rounded-full bg-fg/20" />
-            <div className="h-2 w-2 rounded-full bg-fg/20" />
-            <div className="h-2 w-2 rounded-full bg-fg/20" />
-          </div>
-          <div className="h-3 w-2/3 rounded bg-fg/15 mt-1" />
-          <div className="h-2 w-1/3 rounded bg-fg/10" />
-          <div className="mt-1 grid grid-cols-3 gap-1.5 flex-1">
-            <div className="rounded-md bg-brand/30" />
-            <div className="rounded-md bg-fg/10" />
-            <div className="rounded-md bg-accent/30" />
-            <div className="rounded-md bg-fg/10" />
-            <div className="rounded-md bg-brand/40" />
-            <div className="rounded-md bg-fg/10" />
-          </div>
-          <div className="h-1.5 w-1/2 rounded bg-fg/10" />
-        </>
-      )}
-      {kind === "blog" && (
-        <>
-          <div className="h-3 w-1/2 rounded bg-fg/15" />
-          <div className="aspect-[4/3] rounded-md bg-gradient-to-br from-brand/30 to-accent/20" />
-          <div className="h-2 w-3/4 rounded bg-fg/15 mt-1" />
-          <div className="h-1.5 w-2/3 rounded bg-fg/10" />
-          <div className="h-1.5 w-1/2 rounded bg-fg/10" />
-          <div className="mt-auto h-1.5 w-1/3 rounded bg-accent/40" />
-        </>
-      )}
-      {kind === "pricing" && (
-        <>
-          <div className="h-2.5 w-1/2 rounded bg-fg/15 mx-auto" />
-          <div className="grid grid-cols-3 gap-1.5 flex-1 mt-2">
-            <div className="rounded-md bg-fg/10 flex flex-col gap-1 p-1.5">
-              <div className="h-1.5 w-2/3 rounded bg-fg/20" />
-              <div className="h-3 w-1/2 rounded bg-fg/30 mt-1" />
-            </div>
-            <div className="rounded-md bg-brand/30 flex flex-col gap-1 p-1.5">
-              <div className="h-1.5 w-2/3 rounded bg-fg/30" />
-              <div className="h-3 w-1/2 rounded bg-fg/40 mt-1" />
-            </div>
-            <div className="rounded-md bg-fg/10 flex flex-col gap-1 p-1.5">
-              <div className="h-1.5 w-2/3 rounded bg-fg/20" />
-              <div className="h-3 w-1/2 rounded bg-fg/30 mt-1" />
-            </div>
-          </div>
-        </>
-      )}
-      {kind === "pdp" && (
-        <>
-          <div className="aspect-square rounded-md bg-gradient-to-tr from-accent/40 via-brand/30 to-fg/10" />
-          <div className="h-2.5 w-3/4 rounded bg-fg/20 mt-1" />
-          <div className="h-2 w-1/3 rounded bg-fg/10" />
-          <div className="mt-auto h-6 rounded-md bg-accent/60" />
-        </>
-      )}
-      {kind === "checkout" && (
-        <>
-          <div className="h-2.5 w-1/2 rounded bg-fg/15" />
-          <div className="h-1.5 w-1/3 rounded bg-fg/10" />
-          <div className="h-5 w-full rounded bg-fg/10 mt-1" />
-          <div className="h-5 w-full rounded bg-fg/10" />
-          <div className="h-5 w-2/3 rounded bg-fg/10" />
-          <div className="mt-auto h-7 rounded-md bg-accent/60" />
-        </>
-      )}
-      {kind === "stat" && (
-        <>
-          <div className="h-2 w-1/2 rounded bg-fg/10" />
-          <div className="font-display text-3xl font-bold tracking-tight text-brand mt-1">98%</div>
-          <div className="h-1.5 w-2/3 rounded bg-fg/15" />
-          <div className="h-1.5 w-1/2 rounded bg-fg/10" />
-          <div className="mt-auto grid grid-cols-4 gap-1 h-10">
-            <div className="rounded bg-brand/20 self-end h-1/3" />
-            <div className="rounded bg-brand/30 self-end h-2/3" />
-            <div className="rounded bg-brand/40 self-end h-1/2" />
-            <div className="rounded bg-brand/60 self-end h-full" />
-          </div>
-        </>
-      )}
+    <div className="mx-3 h-[180px] w-[280px] shrink-0 overflow-hidden rounded-[14px] bg-[#0a1f2e] ring-1 ring-white/10 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
     </div>
   );
 }
@@ -112,18 +42,17 @@ function MarqueeRow({
   direction,
   slow,
 }: {
-  tiles: TileKind[];
+  tiles: string[];
   direction: "left" | "right";
   slow?: boolean;
 }) {
-  // double the tiles so the loop is seamless
   const doubled = [...tiles, ...tiles];
   return (
     <div
       className={`hero-row ${direction === "left" ? "hero-row-left" : "hero-row-right"} ${slow ? "hero-row-slow" : ""}`}
     >
-      {doubled.map((kind, i) => (
-        <Tile key={i} kind={kind} />
+      {doubled.map((src, i) => (
+        <Tile key={i} src={src} />
       ))}
     </div>
   );
@@ -131,75 +60,131 @@ function MarqueeRow({
 
 export function HomeHeroSection({ locale }: { locale: string }) {
   return (
-    <section className="relative overflow-hidden bg-bg pt-24 pb-32">
-      {/* radial spotlight behind copy */}
+    <section
+      className="relative overflow-hidden"
+      style={{ backgroundColor: "var(--color-deep-space-blue)" }}
+    >
+      {/* radial spotlight — blue-green accent, soft */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[820px] -z-0"
+        className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 25%, rgb(33 158 188 / 0.18) 0%, transparent 70%)",
+            "radial-gradient(60% 50% at 50% 22%, rgb(33 158 188 / 0.30) 0%, transparent 65%)",
+        }}
+      />
+      {/* secondary warm glow lower */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[600px]"
+        style={{
+          background:
+            "radial-gradient(50% 60% at 50% 100%, rgb(255 183 3 / 0.10) 0%, transparent 70%)",
+        }}
+      />
+      {/* subtle grid texture */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
         }}
       />
 
-      {/* tilted scrolling tile wall — sits BEHIND the headline */}
-      <div
-        aria-hidden
-        className="hero-stage pointer-events-none absolute inset-0 -z-0 flex flex-col justify-center gap-6 opacity-50 dark:opacity-40"
-        style={{ transform: "rotate(-14deg) scale(1.35) translateY(8%)", transformOrigin: "center" }}
-      >
-        <MarqueeRow tiles={ROW_A} direction="left" />
-        <MarqueeRow tiles={ROW_B} direction="right" />
-        <MarqueeRow tiles={ROW_C} direction="left" slow />
-      </div>
-
-      {/* fade overlay so headline reads cleanly */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 45% at 50% 38%, var(--color-bg) 0%, transparent 75%)",
-        }}
-      />
-
-      <Container size="xl" className="relative">
-        <div className="mx-auto max-w-3xl text-center pt-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-bg-elevated/80 backdrop-blur ring-1 ring-border px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-fg-muted">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+      <Container size="xl" className="relative pt-24 pb-10 sm:pt-28 sm:pb-12">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur ring-1 ring-white/15 px-3.5 py-1.5 text-[12px] font-mono font-semibold uppercase tracking-wider text-white/70">
+            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--color-amber-flame)" }} />
             v0.1 — open beta cho merchant Việt
           </div>
-          <h1 className="mt-7 font-display text-[56px] sm:text-[72px] lg:text-[88px] font-bold tracking-[-0.03em] leading-[0.98] text-fg">
+          <h1 className="mt-7 font-display text-[56px] sm:text-[88px] lg:text-[112px] font-bold tracking-[-0.035em] leading-[0.95] text-white">
             Mở store nhanh hơn,
             <br />
-            <span className="text-accent">không bị khoá tay.</span>
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, var(--color-amber-flame) 0%, var(--color-princeton-orange) 100%)",
+              }}
+            >
+              không bị khoá tay.
+            </span>
           </h1>
-          <p className="mt-7 mx-auto max-w-xl text-[16px] leading-relaxed text-fg-muted">
+          <p className="mt-7 mx-auto max-w-xl text-[17px] sm:text-[18px] leading-relaxed text-white/70">
             Nền tảng thương mại tự host, multi-store thật, theme đẹp ship sẵn. Từ landing đến
             checkout chỉ vài giờ — không phải vài tháng. Code của bạn, server của bạn.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               href={`/${locale}/themes`}
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-[14px] font-semibold text-accent-fg shadow-lift"
+              className="group inline-flex items-center gap-2 rounded-full px-7 py-4 text-[14px] font-semibold text-[#1a0e00] shadow-[0_10px_40px_-10px_rgba(255,183,3,0.6)] transition-transform hover:scale-[1.02]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, var(--color-amber-flame) 0%, var(--color-princeton-orange) 100%)",
+              }}
             >
               Bắt đầu miễn phí
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
+              <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </Link>
             <Link
               href={`/${locale}/pricing`}
-              className="inline-flex items-center gap-2 rounded-full bg-bg-elevated/80 backdrop-blur px-6 py-3.5 text-[14px] font-semibold text-fg ring-1 ring-border"
+              className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] backdrop-blur px-6 py-4 text-[14px] font-semibold text-white ring-1 ring-white/15 hover:bg-white/[0.10]"
             >
               Xem bảng giá
             </Link>
           </div>
-          <p className="mt-6 text-[12px] text-fg-muted/80">
+          <p className="mt-6 text-[12px] text-white/50">
             Mã nguồn mở · Không khoá vendor · Trả 1 lần, dùng mãi
           </p>
         </div>
       </Container>
+
+      {/* Tilted mockup wall — fills bottom half */}
+      <div className="relative h-[560px] sm:h-[640px] overflow-hidden">
+        <div
+          aria-hidden
+          className="hero-stage absolute inset-0 flex flex-col justify-center gap-5"
+          style={{
+            transform: "rotate(-12deg) scale(1.4) translateY(6%)",
+            transformOrigin: "center",
+          }}
+        >
+          <MarqueeRow tiles={ROW_A} direction="left" />
+          <MarqueeRow tiles={ROW_B} direction="right" />
+          <MarqueeRow tiles={ROW_C} direction="left" slow />
+        </div>
+        {/* top fade into hero copy */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-32"
+          style={{
+            background:
+              "linear-gradient(180deg, var(--color-deep-space-blue) 0%, transparent 100%)",
+          }}
+        />
+        {/* bottom fade into next section */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+          style={{
+            background:
+              "linear-gradient(0deg, var(--color-deep-space-blue) 0%, transparent 100%)",
+          }}
+        />
+        {/* side vignette */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgba(2,48,71,0.7) 100%)",
+          }}
+        />
+      </div>
     </section>
   );
 }
