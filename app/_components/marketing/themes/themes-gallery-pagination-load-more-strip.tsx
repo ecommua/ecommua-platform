@@ -14,7 +14,7 @@ export function ThemesLoadMore({ shown, total }: { shown: number; total: number 
       <button
         type="button"
         disabled={allShown}
-        className="inline-flex h-11 items-center gap-2 rounded-xl bg-bg-elevated ring-1 ring-inset ring-border px-6 text-sm font-semibold text-fg hover:ring-brand/50 hover:text-brand transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        className="inline-flex h-11 items-center gap-2 rounded-xl bg-bg-elevated ring-1 ring-inset ring-border px-6 text-sm font-semibold text-fg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {allShown ? "All templates loaded" : "Load more templates"}
         {!allShown && (

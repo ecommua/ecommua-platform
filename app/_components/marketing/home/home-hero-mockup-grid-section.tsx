@@ -46,7 +46,7 @@ export function HomeHeroSection({ locale }: { locale: string }) {
           <div className="mt-9 flex justify-center">
             <Link
               href={`/${locale}/themes`}
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-semibold text-accent-fg shadow-lift hover:bg-accent-strong transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-semibold text-accent-fg shadow-lift"
             >
               Bắt đầu
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>

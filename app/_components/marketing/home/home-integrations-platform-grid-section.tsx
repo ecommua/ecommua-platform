@@ -28,7 +28,7 @@ export function HomeIntegrationsGridSection() {
           {INTEGRATIONS.map((name) => (
             <div
               key={name}
-              className="aspect-[5/3] rounded-2xl bg-bg ring-1 ring-border flex items-center justify-center hover:ring-brand/40 hover:bg-bg-muted transition-all"
+              className="aspect-[5/3] rounded-2xl bg-bg ring-1 ring-border flex items-center justify-center"
             >
               <span className="font-display text-[15px] font-semibold tracking-tight text-fg-muted">
                 {name}

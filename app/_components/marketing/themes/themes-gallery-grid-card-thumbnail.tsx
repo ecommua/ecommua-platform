@@ -17,7 +17,7 @@ export function ThemesGridCard({ theme, locale }: { theme: ThemeMeta; locale: st
       className="group flex flex-col gap-3"
     >
       {/* Thumb */}
-      <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-bg-elevated ring-1 ring-border transition-all group-hover:ring-brand/40 group-hover:shadow-lift">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-bg-elevated ring-1 ring-border group- group-">
         <div
           aria-hidden
           className="absolute inset-0 opacity-90"
@@ -45,7 +45,7 @@ export function ThemesGridCard({ theme, locale }: { theme: ThemeMeta; locale: st
         )}
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 flex items-end justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-fg/30 via-transparent to-transparent pointer-events-none">
+        <div className="absolute inset-0 flex items-end justify-center p-4 opacity-0 group- bg-gradient-to-t from-fg/30 via-transparent to-transparent pointer-events-none">
           <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-bg/95 backdrop-blur px-4 text-xs font-semibold text-fg ring-1 ring-border shadow-lift">
             View details
             <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
@@ -58,7 +58,7 @@ export function ThemesGridCard({ theme, locale }: { theme: ThemeMeta; locale: st
       {/* Body */}
       <div className="px-0.5">
         <div className="flex items-baseline gap-1.5">
-          <span className="font-display text-[15px] font-semibold tracking-tight text-fg group-hover:text-brand transition-colors">
+          <span className="font-display text-[15px] font-semibold tracking-tight text-fg group-">
             {theme.displayName}
           </span>
           <span className="text-fg-muted/60 text-sm">|</span>

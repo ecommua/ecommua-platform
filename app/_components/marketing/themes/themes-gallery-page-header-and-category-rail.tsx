@@ -40,7 +40,7 @@ export function ThemesPageHeader({
               className={cn(
                 "w-full h-11 rounded-xl bg-bg-elevated text-fg placeholder:text-fg-muted",
                 "ring-1 ring-inset ring-border focus:ring-2 focus:ring-ring focus:outline-none",
-                "pl-11 pr-4 text-sm transition-all",
+                "pl-11 pr-4 text-sm",
               )}
             />
           </form>
@@ -140,10 +140,10 @@ function CategoryRow({
       <Link
         href={href}
         className={cn(
-          "group flex items-center gap-3 rounded-md px-2 py-2 text-sm transition-colors",
+          "group flex items-center gap-3 rounded-md px-2 py-2 text-sm",
           active
             ? "text-brand font-semibold"
-            : "text-fg-muted hover:text-fg",
+            : "text-fg-muted",
         )}
       >
         <CategoryIcon kind={icon} active={active} />

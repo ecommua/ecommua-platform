@@ -110,10 +110,10 @@ export function PricingHeroAndTiers() {
               type="button"
               onClick={() => setPeriod("monthly")}
               className={[
-                "h-10 px-6 rounded-full text-sm font-semibold transition-colors",
+                "h-10 px-6 rounded-full text-sm font-semibold",
                 period === "monthly"
                   ? "bg-accent text-accent-fg shadow-soft"
-                  : "text-fg-muted hover:text-fg",
+                  : "text-fg-muted",
               ].join(" ")}
               aria-pressed={period === "monthly"}
             >
@@ -123,10 +123,10 @@ export function PricingHeroAndTiers() {
               type="button"
               onClick={() => setPeriod("yearly")}
               className={[
-                "h-10 px-6 rounded-full text-sm font-semibold transition-colors",
+                "h-10 px-6 rounded-full text-sm font-semibold",
                 period === "yearly"
                   ? "bg-accent text-accent-fg shadow-soft"
-                  : "text-fg-muted hover:text-fg",
+                  : "text-fg-muted",
               ].join(" ")}
               aria-pressed={period === "yearly"}
             >

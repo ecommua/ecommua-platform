@@ -86,7 +86,7 @@ export function HomeFeatureGroupASection({ locale }: { locale: string }) {
           </div>
           <Link
             href={`/${locale}/themes`}
-            className="self-start sm:self-auto inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-fg hover:bg-accent-strong transition-colors"
+            className="self-start sm:self-auto inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-fg"
           >
             Xem theme
           </Link>

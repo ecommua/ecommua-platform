@@ -11,7 +11,7 @@ export function HomeTrustStripSection() {
           {PARTNERS.map((p) => (
             <span
               key={p}
-              className="font-display text-[15px] font-semibold tracking-tight text-fg-muted opacity-70 hover:opacity-100 transition-opacity"
+              className="font-display text-[15px] font-semibold tracking-tight text-fg-muted opacity-70"
             >
               {p}
             </span>

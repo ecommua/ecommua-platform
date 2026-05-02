@@ -34,13 +34,13 @@ export function HomeFinalCtaSection({ locale }: { locale: string }) {
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href={`/${locale}/themes`}
-                className="inline-flex items-center justify-center rounded-full bg-bg px-7 py-3.5 text-sm font-semibold text-fg ring-1 ring-border hover:bg-bg-muted transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-bg px-7 py-3.5 text-sm font-semibold text-fg ring-1 ring-border"
               >
                 Xem demo
               </Link>
               <Link
                 href={`/${locale}/pricing`}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-fg shadow-lift hover:bg-accent-strong transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-fg shadow-lift"
               >
                 Bắt đầu
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>

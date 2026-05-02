@@ -13,7 +13,7 @@ export function ThemesFeaturedCard({ theme, locale }: { theme: ThemeMeta; locale
   return (
     <Link
       href={`/${locale}/themes/${theme.slug}`}
-      className="group relative block overflow-hidden rounded-2xl border border-border bg-bg-elevated transition-all hover:border-brand/40"
+      className="group relative block overflow-hidden rounded-2xl border border-border bg-bg-elevated"
     >
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-0">
         {/* Copy */}
@@ -49,9 +49,9 @@ export function ThemesFeaturedCard({ theme, locale }: { theme: ThemeMeta; locale
               </div>
               <div className="text-xs text-fg-muted mt-0.5">One-time · v{theme.version}</div>
             </div>
-            <span className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand text-brand-fg px-5 text-sm font-semibold transition-all group-hover:bg-brand-strong">
+            <span className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand text-brand-fg px-5 text-sm font-semibold group-">
               View details
-              <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
+              <svg className="h-4 w-4 group-" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </span>
